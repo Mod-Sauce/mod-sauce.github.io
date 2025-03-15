@@ -10,7 +10,9 @@ p {
     text-align: center;
     font-size: 30px;
 }
-
+li {
+    font-size: 30px;
+}
 body {
     background-color: black;
     margin: 0;
