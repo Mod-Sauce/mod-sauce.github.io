@@ -148,7 +148,18 @@
                 z-index: 10;
                 gap: 0;
             }
-
+            .navp {
+                display: none; /* Hide the regular nav on mobile */
+                flex-direction: column;
+                position: absolute;
+                top: 60px; /* Adjust as needed based on header height */
+                left: 0;
+                width: 100%;
+                background-color: black;
+                z-index: 10;
+                gap: 0;
+                border: 2px;
+            }
             .nav a, .dropdown {
                 display: block;
                 width: 100%;
@@ -185,8 +196,8 @@
             <div class="bar"></div>
         </div>
         <nav class="nav">
-            <button href="index.html">Main</button>
-            <a href="about.html">About</a>
+            <a href="index.html">Main</a>
+            <a class="navp"href="about.html">About</a>
             <div class="dropdown">
                 <a href="#">Projects ▼</a>
                 <div class="dropdown-content">
