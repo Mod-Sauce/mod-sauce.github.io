@@ -6,16 +6,50 @@
     <title>Mod-Sauce Dev's</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: black;
+            border-bottom: 2px solid purple;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .nav {
+            display: flex;
+            gap: 15px;
+        }
+        .nav a {
+            text-decoration: none;
+            color: white;
+            background: purple;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .nav a:hover {
+            background: #800080;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Mod-Sauce Dev's</h1>
-    </div>
-    <p>Welcome to our website!</p>
-    <div class="container">
-        <button onclick="location.href='index.html'">Main</button>
-        <button onclick="location.href='about.html'">About</button>
-        <button onclick="location.href='#'">Projects</button>
+    <div class="header">
+        <div class="logo">Mod-Sauce Dev's</div>
+        <nav class="nav">
+            <a href="index.html">Main</a>
+            <a href="about.html">About</a>
+            <a href="#">Projects ▼</a>
+        </nav>
     </div>
 </body>
 </html>
