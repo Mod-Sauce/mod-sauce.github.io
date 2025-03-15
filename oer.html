@@ -1,1 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OER - Mod-Sauce Dev's</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            text-align: center;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: black;
+            border-bottom: 2px solid purple;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .nav {
+            display: flex;
+            gap: 15px;
+            position: relative;
+        }
+        .nav a {
+            text-decoration: none;
+            color: white;
+            background: purple;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+        .nav a:hover {
+            background: #800080;
+        }
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: purple;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+        .dropdown-content a {
+            color: white;
+            padding: 10px;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #800080;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        .content {
+            margin-top: 50px;
+            padding: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            display: none; /* Hidden by default on larger screens */
+            cursor: pointer;
+        }
 
+        .bar {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) { /* Adjust breakpoint as needed */
+            .nav {
+                display: none; /* Hide the regular nav on mobile */
+                flex-direction: column;
+                position: absolute;
+                top: 60px; /* Adjust as needed based on header height */
+                left: 0;
+                width: 100%;
+                background-color: purple;
+                z-index: 10;
+                gap: 0;
+            }
+
+            .nav a, .dropdown {
+                display: block;
+                width: 100%;
+                text-align: left;
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                background-color: #800080;
+                width: 100%;
+                box-shadow: none;
+            }
+
+            .mobile-menu {
+                display: block; /* Show the hamburger menu on mobile */
+            }
+
+            .nav.active {
+                display: flex; /* Show the nav when active */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <img src="favicon.ico" alt="Logo">
+            Mod-Sauce Dev's
+        </div>
+        <div class="mobile-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
+        </div>
+        <nav class="nav">
+            <a href="index.html">Main</a>
+            <a href="about.html">About</a>
+            <div class="dropdown">
+                <a href="#">Projects ▼</a>
+                <div class="dropdown-content">
+                    <a href="impr.html">IMP</a>
+                    <a href="oer.html">OE</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="content">
+        <h1>OER (Otyacraft Engine Renewed)</h1>
+        <p>OER, or Otyacraft Engine Renewed, is our project dedicated to updating the Otyacraft Engine to be compatible with the newest modloader versions for Minecraft.</p>
+        <h2>About Otyacraft Engine</h2>
+        <p>Otyacraft Engine is a core mod that provides essential functionality and API for other Otyacraft mods. It's a fundamental part of the Otyacraft mod ecosystem, but it required updates to work with modern modloader versions.</p>
+        <h2>OER's Features</h2>
+        <ul>
+            <li><strong>Modern Modloader Compatibility:</strong> Updated to work seamlessly with the latest versions of popular modloaders.</li>
+            <li><strong>Stability Improvements:</strong> Addressed compatibility issues and bugs from the original engine.</li>
+            <li><strong>Continued Support:</strong> We are committed to keeping OER up-to-date and reliable.</li>
+            <li><strong>API Maintenance:</strong> Ensuring that the core API remains functional and usable for other Otyacraft mods.</li>
+        </ul>
+        <h2>Our Goal</h2>
+        <p>Our goal with OER is to ensure that the Otyacraft mod ecosystem can continue to thrive on modern Minecraft versions. By updating the core engine, we are enabling other Otyacraft mods to remain relevant and enjoyable.</p>
+        <h2>Download and Support</h2>
+        <p>Stay tuned for download links and updates. Join our <a href="https://discord.gg/VNrzdd5ErJ">Discord server</a> for support, feedback, and to stay updated on OER's development.</p>
+        <p>Thank you for supporting OER!</p>
+    </div>
+    <script>
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const nav = document.querySelector('.nav');
+
+        mobileMenu.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
+</body>
+</html>
