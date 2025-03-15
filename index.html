@@ -20,6 +20,7 @@
             padding: 15px 20px;
             background: black;
             border-bottom: 2px solid purple;
+            position: relative;
         }
         .logo {
             font-size: 24px;
@@ -28,6 +29,7 @@
         .nav {
             display: flex;
             gap: 15px;
+            position: relative;
         }
         .nav a {
             text-decoration: none;
@@ -40,6 +42,34 @@
         .nav a:hover {
             background: #800080;
         }
+        /* Dropdown Menu */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: black;
+            border: 2px solid purple;
+            min-width: 160px;
+            z-index: 1;
+            top: 40px;
+        }
+        .dropdown-content a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: white;
+            background: purple;
+            border-radius: 0;
+        }
+        .dropdown-content a:hover {
+            background: #800080;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
     </style>
 </head>
 <body>
@@ -48,7 +78,13 @@
         <nav class="nav">
             <a href="index.html">Main</a>
             <a href="about.html">About</a>
-            <a href="#">Projects ▼</a>
+            <div class="dropdown">
+                <a href="#">Projects ▼</a>
+                <div class="dropdown-content">
+                    <a href="impr.html">Project Impr</a>
+                    <a href="oer.html">Project Oer</a>
+                </div>
+            </div>
         </nav>
     </div>
 </body>
