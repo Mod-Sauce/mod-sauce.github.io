@@ -50,3 +50,15 @@ button:hover {
     margin-right: auto;
     width: 50%;
 }
+@font-face {
+            font-family: 'RaelaGrotesque';
+            src: url('fonts/RaelaGrotesque-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+@font-face {
+            font-family: 'JazzyRabbit';
+            src: url('fonts/JazzyRabbit.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
