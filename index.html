@@ -79,6 +79,56 @@
             margin-left: auto;
             margin-right: auto;
         }
+        /* Mobile Menu Styles */
+        .mobile-menu {
+            display: none; /* Hidden by default on larger screens */
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 30px;
+            height: 3px;
+            background-color: white;
+            margin: 6px 0;
+            transition: 0.4s;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) { /* Adjust breakpoint as needed */
+            .nav {
+                display: none; /* Hide the regular nav on mobile */
+                flex-direction: column;
+                position: absolute;
+                top: 60px; /* Adjust as needed based on header height */
+                left: 0;
+                width: 100%;
+                background-color: purple;
+                z-index: 10;
+                gap: 0;
+            }
+
+            .nav a, .dropdown {
+                display: block;
+                width: 100%;
+                text-align: left;
+            }
+
+            .dropdown-content {
+                position: static;
+                display: none;
+                background-color: #800080;
+                width: 100%;
+                box-shadow: none;
+            }
+
+            .mobile-menu {
+                display: block; /* Show the hamburger menu on mobile */
+            }
+
+            .nav.active {
+                display: flex; /* Show the nav when active */
+            }
+        }
     </style>
 </head>
 <body>
@@ -86,6 +136,11 @@
         <div class="logo">
             <img src="favicon.ico" alt="Logo">
             Mod-Sauce Dev's
+        </div>
+        <div class="mobile-menu">
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
         </div>
         <nav class="nav">
             <a href="index.html">Main</a>
@@ -110,5 +165,13 @@
         <p>Join our <a href="https://discord.gg/VNrzdd5ErJ">Discord server</a> to stay updated on new releases, discuss modding, and connect with our community.</p>
         <p>We appreciate your support and look forward to bringing more mods back to life!</p>
     </div>
+    <script>
+        const mobileMenu = document.querySelector('.mobile-menu');
+        const nav = document.querySelector('.nav');
+
+        mobileMenu.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
