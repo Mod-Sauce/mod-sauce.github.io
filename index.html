@@ -23,12 +23,19 @@
             border-bottom: 2px solid purple;
         }
         .logo {
+            display: flex;
+            align-items: center;
             font-size: 24px;
             font-weight: bold;
+        }
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
         }
         .nav {
             display: flex;
             gap: 15px;
+            position: relative;
         }
         .nav a {
             text-decoration: none;
@@ -41,6 +48,30 @@
         .nav a:hover {
             background: #800080;
         }
+        .dropdown {
+            position: relative;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: purple;
+            min-width: 120px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+        .dropdown-content a {
+            color: white;
+            padding: 10px;
+            display: block;
+            text-align: left;
+        }
+        .dropdown-content a:hover {
+            background-color: #800080;
+        }
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
         .content {
             margin-top: 50px;
             padding: 20px;
@@ -52,11 +83,20 @@
 </head>
 <body>
     <div class="header">
-        <div class="logo">Mod-Sauce Dev's</div>
+        <div class="logo">
+            <img src="favicon.ico" alt="Logo">
+            Mod-Sauce Dev's
+        </div>
         <nav class="nav">
             <a href="index.html">Main</a>
             <a href="about.html">About</a>
-            <a href="#">Projects ▼</a>
+            <div class="dropdown">
+                <a href="#">Projects ▼</a>
+                <div class="dropdown-content">
+                    <a href="impr.html">IMP</a>
+                    <a href="oer.html">OE</a>
+                </div>
+            </div>
         </nav>
     </div>
     <div class="content">
