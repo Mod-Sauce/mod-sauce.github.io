@@ -198,5 +198,15 @@
             nav.classList.toggle('active');
         });
     </script>
+        <div id="spotify-embed"></div>
+            <h2>A Song</h2>
+                <p>Cause why not?</p>
+                    <script>
+                            fetch('embedd.txt') // adjust path if needed
+                                        .then(res => res.text())
+                                                    .then(code => {
+                                                                    document.getElementById('spotify-embed').innerHTML = code;
+                                                                                });
+                                                                                    </script>
 </body>
 </html>
