@@ -428,6 +428,13 @@ a:hover {
         text-align: center !important;
     }
 
+    .card h2 {
+        text-align: center !important;
+        display: block !important;
+        width: 100% !important;
+        margin: 1rem auto !important;
+    }
+
     .card ul {
         text-align: left !important;
         max-width: 280px;
@@ -452,12 +459,36 @@ a:hover {
         font-size: 2rem !important;
         text-align: center !important;
         margin: 1rem auto !important;
+        display: block !important;
+        width: 100% !important;
     }
 
     p {
         font-size: 1.6rem !important;
         text-align: center !important;
         margin: 1rem auto !important;
+    }
+
+    /* Force center all buttons on mobile */
+    .btn {
+        display: block !important;
+        margin: 1rem auto !important;
+        text-align: center !important;
+        width: fit-content !important;
+    }
+
+    .card .btn {
+        display: block !important;
+        margin: 1rem auto !important;
+        text-align: center !important;
+        width: fit-content !important;
+    }
+
+    .main-content .btn {
+        display: block !important;
+        margin: 1rem auto !important;
+        text-align: center !important;
+        width: fit-content !important;
     }
 
     /* Hamburger menu improvements */
@@ -480,6 +511,29 @@ a:hover {
 
     .mobile-toggle.active .hamburger:nth-child(3) {
         transform: rotate(45deg) translate(-6px, -6px);
+    }
+
+    /* Additional centering rules for stubborn elements */
+    .main-content h2,
+    .card h2,
+    h2 {
+        text-align: center !important;
+        display: block !important;
+        width: 100% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+
+    .main-content .btn,
+    .card .btn,
+    .btn,
+    a.btn {
+        display: block !important;
+        margin: 1rem auto !important;
+        text-align: center !important;
+        width: fit-content !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
     }
 }
 
