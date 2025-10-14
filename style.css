@@ -225,6 +225,7 @@ p {
 
 .btn {
     display: inline-block;
+    align-self: center;
     background: var(--accent-color);
     color: var(--text-primary);
     padding: 1rem 2rem;
