@@ -1,6 +1,23 @@
 /* Import better font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+/* Custom font faces */
+@font-face {
+    font-family: 'RaelaGrotesque';
+    src: url('fonts/RaelaGrotesque-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'JazzyRabbit';
+    src: url('fonts/JazzyRabbit.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
 /* CSS Variables for Light/Dark Mode */
 :root {
     --bg-primary: #1a1a1a;
