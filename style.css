@@ -513,10 +513,12 @@ a:hover {
         transform: rotate(45deg) translate(-6px, -6px);
     }
 
-    /* Additional centering rules for stubborn elements */
-    .main-content h2,
-    .card h2,
-    h2 {
+    /* FORCE CENTER EVERYTHING ON MOBILE */
+    * {
+        text-align: center !important;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
         text-align: center !important;
         display: block !important;
         width: 100% !important;
@@ -524,16 +526,55 @@ a:hover {
         margin-right: auto !important;
     }
 
-    .main-content .btn,
-    .card .btn,
-    .btn,
-    a.btn {
+    .btn, a.btn, button {
         display: block !important;
         margin: 1rem auto !important;
         text-align: center !important;
         width: fit-content !important;
         margin-left: auto !important;
         margin-right: auto !important;
+    }
+
+    .card {
+        text-align: center !important;
+    }
+
+    .card * {
+        text-align: center !important;
+    }
+
+    .card h2 {
+        text-align: center !important;
+        display: block !important;
+        width: 100% !important;
+    }
+
+    .card .btn {
+        display: block !important;
+        margin: 1rem auto !important;
+        text-align: center !important;
+        width: fit-content !important;
+    }
+
+    .main-content {
+        text-align: center !important;
+    }
+
+    .main-content * {
+        text-align: center !important;
+    }
+
+    .main-content h2 {
+        text-align: center !important;
+        display: block !important;
+        width: 100% !important;
+    }
+
+    .main-content .btn {
+        display: block !important;
+        margin: 1rem auto !important;
+        text-align: center !important;
+        width: fit-content !important;
     }
 }
 
