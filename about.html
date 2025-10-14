@@ -27,6 +27,7 @@
                         <a href="oer.html">Otyacraft Engine Renewed</a>
                     </div>
                 </li>
+                <li><button class="mobile-theme-toggle" onclick="toggleTheme()">🌙 Dark</button></li>
             </ul>
 
             <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
@@ -39,43 +40,37 @@
         </div>
     </nav>
     <!-- Main Content -->
-    <main class="content">
-        <div class="container">
-            <h1>About Mod-Sauce Dev's</h1>
-            <p>We are a team of passionate Minecraft mod developers dedicated to reviving and maintaining older, abandoned mods.</p>
+    <main class="main-content">
+        <h1>About Mod-Sauce Dev's</h1>
+        <p>We are a team of passionate Minecraft mod developers dedicated to reviving and maintaining older, abandoned mods.</p>
 
-            <div class="card">
-                <h2>Our Mission</h2>
-                <p>Our mission is to ensure that classic Minecraft mods remain accessible and compatible with modern versions of the game. We believe that these mods contribute significantly to the rich history and diversity of the Minecraft modding community.</p>
-            </div>
+        <div class="card">
+            <h2>Our Mission</h2>
+            <p>Our mission is to ensure that classic Minecraft mods remain accessible and compatible with modern versions of the game. We believe that these mods contribute significantly to the rich history and diversity of the Minecraft modding community.</p>
+        </div>
 
-            <div class="card">
-                <h2>What We Do</h2>
-                <p>We specialize in:</p>
-                <ul>
-                    <li>Repairing and updating outdated mods</li>
-                    <li>Maintaining the original spirit and vision of the mods</li>
-                    <li>Providing community support and updates</li>
-                </ul>
-            </div>
+        <div class="card">
+            <h2>What We Do</h2>
+            <p>We specialize in:</p>
+            <ul>
+                <li>Repairing and updating outdated mods</li>
+                <li>Maintaining the original spirit and vision of the mods</li>
+                <li>Providing community support and updates</li>
+            </ul>
+        </div>
 
-            <div class="card">
-                <h2>Our Team</h2>
-                <p>We are a small, dedicated team of developers with a shared love for Minecraft and its modding community. We are committed to providing high-quality, reliable mods for everyone to enjoy.</p>
-                <div class="center">
-                    <a href="https://github.com/Mooo0042" class="btn">Us3r0 - GitHub</a>
-                    <a href="https://github.com/Shadowbee27" class="btn">Shadowbee - GitHub</a>
-                </div>
-            </div>
+        <div class="card">
+            <h2>Our Team</h2>
+            <p>We are a small, dedicated team of developers with a shared love for Minecraft and its modding community. We are committed to providing high-quality, reliable mods for everyone to enjoy.</p>
+            <a href="https://github.com/Mooo0042" class="btn">Us3r0 - GitHub</a>
+            <a href="https://github.com/Shadowbee27" class="btn">Shadowbee - GitHub</a>
+        </div>
 
-            <div class="card">
-                <h2>Get Involved</h2>
-                <p>If you're interested in contributing or have any questions, feel free to join our Discord community. We welcome feedback, suggestions, and contributions from the community.</p>
-                <div class="center">
-                    <a href="https://discord.gg/VNrzdd5ErJ" class="btn">Join Discord Server</a>
-                </div>
-                <p>Thank you for your support!</p>
-            </div>
+        <div class="card">
+            <h2>Get Involved</h2>
+            <p>If you're interested in contributing or have any questions, feel free to join our Discord community. We welcome feedback, suggestions, and contributions from the community.</p>
+            <a href="https://discord.gg/VNrzdd5ErJ" class="btn">Join Discord Server</a>
+            <p>Thank you for your support!</p>
         </div>
     </main>
     <script>
@@ -109,15 +104,18 @@
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
             const themeButton = document.querySelector('.theme-toggle');
+            const mobileThemeButton = document.querySelector('.mobile-theme-toggle');
 
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
 
-            // Update button text
+            // Update button text for both desktop and mobile
             if (newTheme === 'light') {
-                themeButton.textContent = '☀️ Light';
+                if (themeButton) themeButton.textContent = '☀️ Light';
+                if (mobileThemeButton) mobileThemeButton.textContent = '☀️ Light';
             } else {
-                themeButton.textContent = '🌙 Dark';
+                if (themeButton) themeButton.textContent = '🌙 Dark';
+                if (mobileThemeButton) mobileThemeButton.textContent = '🌙 Dark';
             }
         }
 
@@ -125,13 +123,16 @@
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'dark';
             const themeButton = document.querySelector('.theme-toggle');
+            const mobileThemeButton = document.querySelector('.mobile-theme-toggle');
 
             document.documentElement.setAttribute('data-theme', savedTheme);
 
             if (savedTheme === 'light') {
-                themeButton.textContent = '☀️ Light';
+                if (themeButton) themeButton.textContent = '☀️ Light';
+                if (mobileThemeButton) mobileThemeButton.textContent = '☀️ Light';
             } else {
-                themeButton.textContent = '🌙 Dark';
+                if (themeButton) themeButton.textContent = '🌙 Dark';
+                if (mobileThemeButton) mobileThemeButton.textContent = '🌙 Dark';
             }
         });
     </script>

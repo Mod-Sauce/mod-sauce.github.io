@@ -27,6 +27,7 @@
                         <a href="oer.html">Otyacraft Engine Renewed</a>
                     </div>
                 </li>
+                <li><button class="mobile-theme-toggle" onclick="toggleTheme()">🌙 Dark</button></li>
             </ul>
 
             <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
@@ -93,15 +94,18 @@
             const currentTheme = document.documentElement.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
             const themeButton = document.querySelector('.theme-toggle');
+            const mobileThemeButton = document.querySelector('.mobile-theme-toggle');
 
             document.documentElement.setAttribute('data-theme', newTheme);
             localStorage.setItem('theme', newTheme);
 
-            // Update button text
+            // Update button text for both desktop and mobile
             if (newTheme === 'light') {
-                themeButton.textContent = '☀️ Light';
+                if (themeButton) themeButton.textContent = '☀️ Light';
+                if (mobileThemeButton) mobileThemeButton.textContent = '☀️ Light';
             } else {
-                themeButton.textContent = '🌙 Dark';
+                if (themeButton) themeButton.textContent = '🌙 Dark';
+                if (mobileThemeButton) mobileThemeButton.textContent = '🌙 Dark';
             }
         }
 
@@ -109,13 +113,16 @@
         document.addEventListener('DOMContentLoaded', () => {
             const savedTheme = localStorage.getItem('theme') || 'dark';
             const themeButton = document.querySelector('.theme-toggle');
+            const mobileThemeButton = document.querySelector('.mobile-theme-toggle');
 
             document.documentElement.setAttribute('data-theme', savedTheme);
 
             if (savedTheme === 'light') {
-                themeButton.textContent = '☀️ Light';
+                if (themeButton) themeButton.textContent = '☀️ Light';
+                if (mobileThemeButton) mobileThemeButton.textContent = '☀️ Light';
             } else {
-                themeButton.textContent = '🌙 Dark';
+                if (themeButton) themeButton.textContent = '🌙 Dark';
+                if (mobileThemeButton) mobileThemeButton.textContent = '🌙 Dark';
             }
         });
     </script>

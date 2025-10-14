@@ -102,11 +102,11 @@ body {
 .logo {
     color: var(--text-primary);
     text-decoration: none;
-    font-size: 1.4rem;
-    font-weight: 600;
+    font-size: 1.4rem !important;
+    font-weight: 600 !important;
     display: flex;
     align-items: center;
-    font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
 }
 
 .logo img {
@@ -129,12 +129,29 @@ body {
     border-radius: 4px;
     transition: all 0.3s ease;
     font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
     background: var(--border-color);
     color: var(--text-primary);
+}
+
+/* Force consistent navbar text sizing */
+.navbar * {
+    font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+}
+
+.navbar .nav-links a {
+    font-size: 1rem !important;
+    font-weight: 500 !important;
+}
+
+.navbar .logo {
+    font-size: 1.4rem !important;
+    font-weight: 600 !important;
 }
 
 /* Improved Mobile Menu */
@@ -326,11 +343,12 @@ a:hover {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 2rem;
+        gap: 1.5rem;
         z-index: 999;
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease;
+        padding: 2rem;
     }
 
     .nav-links.active {
@@ -340,14 +358,16 @@ a:hover {
     }
 
     .nav-links a {
-        font-size: 1.3rem;
-        padding: 1.2rem 2.5rem;
+        font-size: 1.2rem !important;
+        padding: 1rem 2rem;
         background: var(--bg-card);
         border: 1px solid var(--border-color);
         border-radius: 8px;
-        min-width: 250px;
+        width: 100%;
+        max-width: 280px;
         text-align: center;
         transition: all 0.3s ease;
+        display: block;
     }
 
     .nav-links a:hover {
@@ -362,36 +382,76 @@ a:hover {
         box-shadow: none;
         border: none;
         margin-top: 1rem;
+        width: 100%;
     }
 
     .dropdown-menu a {
         background: var(--bg-secondary);
         margin: 0.5rem 0;
         border-radius: 6px;
-        min-width: 220px;
+        width: 100%;
+        max-width: 250px;
+    }
+
+    /* Mobile theme toggle button */
+    .mobile-theme-toggle {
+        display: block;
+        background: var(--accent-color);
+        color: var(--text-primary);
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        cursor: pointer;
+        font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+        font-size: 1.1rem;
+        font-weight: 500;
+        margin-top: 1rem;
+        width: 100%;
+        max-width: 280px;
+        transition: all 0.3s ease;
+    }
+
+    .mobile-theme-toggle:hover {
+        background: var(--accent-hover);
+        transform: translateY(-2px);
     }
 
     .main-content {
         padding: 1rem;
+        text-align: center;
+    }
+
+    .card {
+        text-align: center;
+    }
+
+    .card h2 {
+        text-align: center;
+    }
+
+    .card p {
+        text-align: center;
+    }
+
+    .card ul {
+        text-align: left;
+        max-width: 300px;
+        margin: 0 auto;
     }
 
     h1 {
         font-size: 2.2rem;
+        text-align: center;
     }
 
     h2 {
         font-size: 1.8rem;
+        text-align: center;
     }
 
     p {
         font-size: 1.6rem;
-    }
-
-    /* Mobile theme toggle in menu */
-    .nav-links::after {
-        content: '';
-        display: block;
-        margin-top: 2rem;
+        text-align: center;
     }
 }
 
