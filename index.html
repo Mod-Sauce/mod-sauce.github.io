@@ -128,6 +128,8 @@
                 </li>
             </ul>
 
+            <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
+
             <div class="mobile-toggle">
                 <div class="hamburger"></div>
                 <div class="hamburger"></div>
@@ -182,6 +184,37 @@
             if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
                 navLinks.classList.remove('active');
                 mobileToggle.classList.remove('active');
+            }
+        });
+
+        // Theme toggle functionality
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            const themeButton = document.querySelector('.theme-toggle');
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            // Update button text
+            if (newTheme === 'light') {
+                themeButton.textContent = '☀️ Light';
+            } else {
+                themeButton.textContent = '🌙 Dark';
+            }
+        }
+
+        // Load saved theme on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            const themeButton = document.querySelector('.theme-toggle');
+
+            document.documentElement.setAttribute('data-theme', savedTheme);
+
+            if (savedTheme === 'light') {
+                themeButton.textContent = '☀️ Light';
+            } else {
+                themeButton.textContent = '🌙 Dark';
             }
         });
     </script>

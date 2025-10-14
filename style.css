@@ -1,6 +1,29 @@
 /* Import better font */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+/* CSS Variables for Light/Dark Mode */
+:root {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2a2a2a;
+    --bg-card: #2a2a2a;
+    --text-primary: #ffffff;
+    --text-secondary: #cccccc;
+    --border-color: #444444;
+    --accent-color: #6366f1;
+    --accent-hover: #4f46e5;
+}
+
+[data-theme="light"] {
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --bg-card: #f8f9fa;
+    --text-primary: #1a1a1a;
+    --text-secondary: #4a4a4a;
+    --border-color: #e0e0e0;
+    --accent-color: #6366f1;
+    --accent-hover: #4f46e5;
+}
+
 /* Simple, Clean Design */
 * {
     margin: 0;
@@ -10,15 +33,16 @@
 
 body {
     font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    background: #1a1a1a;
-    color: #ffffff;
+    background: var(--bg-primary);
+    color: var(--text-primary);
     line-height: 1.6;
     font-size: 18px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Simple Navigation */
 .navbar {
-    background: #2a2a2a;
+    background: var(--bg-secondary);
     padding: 1rem 0;
     position: sticky;
     top: 0;
@@ -26,6 +50,8 @@ body {
     height: 70px;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s ease;
 }
 
 .nav-content {
@@ -38,13 +64,32 @@ body {
     width: 100%;
 }
 
+/* Theme Toggle Button */
+.theme-toggle {
+    background: var(--accent-color);
+    color: var(--text-primary);
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--accent-hover);
+}
+
 .logo {
-    color: #ffffff;
+    color: var(--text-primary);
     text-decoration: none;
     font-size: 1.4rem;
     font-weight: 600;
     display: flex;
     align-items: center;
+    font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .logo img {
@@ -57,35 +102,57 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
+    align-items: center;
 }
 
 .nav-links a {
-    color: #cccccc;
+    color: var(--text-secondary);
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
+    font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .nav-links a:hover,
 .nav-links a.active {
-    background: #444444;
-    color: #ffffff;
+    background: var(--border-color);
+    color: var(--text-primary);
 }
 
-/* Mobile Menu */
+/* Improved Mobile Menu */
 .mobile-toggle {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: background-color 0.3s ease;
+}
+
+.mobile-toggle:hover {
+    background: var(--border-color);
 }
 
 .hamburger {
-    width: 25px;
+    width: 24px;
     height: 3px;
-    background: #ffffff;
-    margin: 3px 0;
-    transition: 0.3s;
+    background: var(--text-primary);
+    margin: 2px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+}
+
+.mobile-toggle.active .hamburger:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.mobile-toggle.active .hamburger:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-toggle.active .hamburger:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
 }
 
 /* Content */
@@ -99,21 +166,23 @@ h1 {
     font-size: 2.8rem;
     text-align: center;
     margin: 2rem 0;
-    color: #ffffff;
+    color: var(--text-primary);
     font-weight: 600;
+    font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 h2 {
     font-size: 2.2rem;
     margin: 1.5rem 0 1rem 0;
-    color: #ffffff;
+    color: var(--text-primary);
     font-weight: 600;
+    font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 p {
     font-size: 1.8rem;
     margin: 1rem 0;
-    color: #cccccc;
+    color: var(--text-secondary);
     text-align: center;
     line-height: 1.7;
     font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
@@ -121,27 +190,29 @@ p {
 
 .btn {
     display: inline-block;
-    background: #6366f1;
-    color: #ffffff;
+    background: var(--accent-color);
+    color: var(--text-primary);
     padding: 1rem 2rem;
     text-decoration: none;
     border-radius: 6px;
     margin: 0.5rem;
-    transition: background 0.3s;
+    transition: all 0.3s ease;
     font-size: 1.1rem;
     font-weight: 500;
+    font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 .btn:hover {
-    background: #4f46e5;
+    background: var(--accent-hover);
 }
 
 .card {
-    background: #2a2a2a;
+    background: var(--bg-card);
     padding: 2rem;
     margin: 2rem 0;
     border-radius: 8px;
-    border: 1px solid #444444;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
 }
 
 /* Spotify Embed */
@@ -166,11 +237,12 @@ p {
     position: absolute;
     top: 100%;
     right: 0;
-    background: #2a2a2a;
-    border: 1px solid #444444;
-    border-radius: 4px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
     min-width: 180px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    overflow: hidden;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -180,8 +252,9 @@ p {
 .dropdown-menu a {
     display: block;
     padding: 0.75rem 1rem;
-    color: #cccccc;
-    border-bottom: 1px solid #444444;
+    color: var(--text-secondary);
+    border-bottom: 1px solid var(--border-color);
+    transition: all 0.3s ease;
 }
 
 .dropdown-menu a:last-child {
@@ -189,8 +262,8 @@ p {
 }
 
 .dropdown-menu a:hover {
-    background: #444444;
-    color: #ffffff;
+    background: var(--border-color);
+    color: var(--text-primary);
 }
 
 /* Lists */
@@ -202,6 +275,7 @@ ul {
 ul li {
     padding: 0.5rem 0;
     color: #cccccc;
+    font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
 /* Links */
@@ -220,6 +294,10 @@ a:hover {
         display: flex;
     }
 
+    .theme-toggle {
+        display: none;
+    }
+
     .nav-links {
         display: none;
         position: fixed;
@@ -227,26 +305,37 @@ a:hover {
         left: 0;
         width: 100%;
         height: 100vh;
-        background: #1a1a1a;
+        background: var(--bg-primary);
         flex-direction: column;
         justify-content: center;
         align-items: center;
         gap: 2rem;
         z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
     }
 
     .nav-links.active {
         display: flex;
+        opacity: 1;
+        visibility: visible;
     }
 
     .nav-links a {
-        font-size: 1.2rem;
-        padding: 1rem 2rem;
-        background: #2a2a2a;
-        border: 1px solid #444444;
-        border-radius: 4px;
-        min-width: 200px;
+        font-size: 1.3rem;
+        padding: 1.2rem 2.5rem;
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        min-width: 250px;
         text-align: center;
+        transition: all 0.3s ease;
+    }
+
+    .nav-links a:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
     .dropdown-menu {
@@ -259,9 +348,10 @@ a:hover {
     }
 
     .dropdown-menu a {
-        background: #333333;
+        background: var(--bg-secondary);
         margin: 0.5rem 0;
-        border-radius: 4px;
+        border-radius: 6px;
+        min-width: 220px;
     }
 
     .main-content {
@@ -278,6 +368,13 @@ a:hover {
 
     p {
         font-size: 1.6rem;
+    }
+
+    /* Mobile theme toggle in menu */
+    .nav-links::after {
+        content: '';
+        display: block;
+        margin-top: 2rem;
     }
 }
 

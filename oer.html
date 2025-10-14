@@ -120,13 +120,15 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle active">Projects ▼</a>
+                    <a href="#" class="active">Projects ▼</a>
                     <div class="dropdown-menu">
                         <a href="impr.html">IMP Renewed</a>
                         <a href="oer.html">Otyacraft Engine Renewed</a>
                     </div>
                 </li>
             </ul>
+
+            <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
 
             <div class="mobile-toggle">
                 <div class="hamburger"></div>
@@ -176,6 +178,37 @@
             if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
                 navLinks.classList.remove('active');
                 mobileToggle.classList.remove('active');
+            }
+        });
+
+        // Theme toggle functionality
+        function toggleTheme() {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            const themeButton = document.querySelector('.theme-toggle');
+
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            // Update button text
+            if (newTheme === 'light') {
+                themeButton.textContent = '☀️ Light';
+            } else {
+                themeButton.textContent = '🌙 Dark';
+            }
+        }
+
+        // Load saved theme on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme') || 'dark';
+            const themeButton = document.querySelector('.theme-toggle');
+
+            document.documentElement.setAttribute('data-theme', savedTheme);
+
+            if (savedTheme === 'light') {
+                themeButton.textContent = '☀️ Light';
+            } else {
+                themeButton.textContent = '🌙 Dark';
             }
         });
     </script>
