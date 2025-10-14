@@ -332,6 +332,10 @@ a:hover {
         display: none;
     }
 
+    .mobile-theme-toggle {
+        display: none;
+    }
+
     .nav-links {
         display: none;
         position: fixed;
@@ -394,24 +398,24 @@ a:hover {
     }
 
     /* Mobile theme toggle button */
-    .mobile-theme-toggle {
-        display: block;
+    .nav-links .mobile-theme-toggle {
+        display: block !important;
         background: var(--accent-color);
         color: var(--text-primary);
         border: none;
         padding: 1rem 2rem;
         border-radius: 8px;
         cursor: pointer;
-        font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-        font-size: 1.1rem;
-        font-weight: 500;
-        margin-top: 1rem;
+        font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
+        font-size: 1.2rem !important;
+        font-weight: 500 !important;
         width: 100%;
         max-width: 280px;
         transition: all 0.3s ease;
+        text-align: center;
     }
 
-    .mobile-theme-toggle:hover {
+    .nav-links .mobile-theme-toggle:hover {
         background: var(--accent-hover);
         transform: translateY(-2px);
     }
@@ -421,37 +425,60 @@ a:hover {
         text-align: center;
     }
 
+    .main-content > * {
+        text-align: center;
+    }
+
     .card {
         text-align: center;
+        margin: 0 auto;
     }
 
     .card h2 {
-        text-align: center;
+        text-align: center !important;
     }
 
     .card p {
-        text-align: center;
+        text-align: center !important;
     }
 
     .card ul {
         text-align: left;
         max-width: 300px;
         margin: 0 auto;
+        display: inline-block;
+    }
+
+    .card .btn {
+        display: block;
+        margin: 0.5rem auto;
+        text-align: center;
+        width: fit-content;
     }
 
     h1 {
-        font-size: 2.2rem;
-        text-align: center;
+        font-size: 2.2rem !important;
+        text-align: center !important;
     }
 
     h2 {
-        font-size: 1.8rem;
-        text-align: center;
+        font-size: 1.8rem !important;
+        text-align: center !important;
     }
 
     p {
-        font-size: 1.6rem;
-        text-align: center;
+        font-size: 1.6rem !important;
+        text-align: center !important;
+    }
+
+    /* Force center alignment for all mobile content */
+    .main-content h1,
+    .main-content h2,
+    .main-content p,
+    .card h1,
+    .card h2,
+    .card p {
+        text-align: center !important;
     }
 }
 
