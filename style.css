@@ -329,11 +329,13 @@ a:hover {
     }
 
     .theme-toggle {
-        display: none;
-    }
-
-    .mobile-theme-toggle {
-        display: none;
+        display: block;
+        position: fixed;
+        top: 15px;
+        right: 60px;
+        z-index: 1001;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
     }
 
     .nav-links {
@@ -347,12 +349,13 @@ a:hover {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: 1.5rem;
+        gap: 2rem;
         z-index: 999;
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease;
         padding: 2rem;
+        text-align: center;
     }
 
     .nav-links.active {
@@ -362,21 +365,24 @@ a:hover {
     }
 
     .nav-links a {
-        font-size: 1.2rem !important;
-        padding: 1rem 2rem;
+        font-size: 1.4rem !important;
+        padding: 1.2rem 2.5rem;
         background: var(--bg-card);
         border: 1px solid var(--border-color);
-        border-radius: 8px;
+        border-radius: 12px;
         width: 100%;
-        max-width: 280px;
+        max-width: 300px;
         text-align: center;
         transition: all 0.3s ease;
         display: block;
+        font-weight: 500 !important;
     }
 
     .nav-links a:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        background: var(--accent-color);
+        color: white;
     }
 
     .dropdown-menu {
@@ -390,95 +396,90 @@ a:hover {
     }
 
     .dropdown-menu a {
-        background: var(--bg-secondary);
-        margin: 0.5rem 0;
-        border-radius: 6px;
-        width: 100%;
-        max-width: 250px;
-    }
-
-    /* Mobile theme toggle button */
-    .nav-links .mobile-theme-toggle {
-        display: block !important;
-        background: var(--accent-color);
-        color: var(--text-primary);
-        border: none;
-        padding: 1rem 2rem;
+        background: var(--bg-secondary) !important;
+        margin: 0.8rem 0;
         border-radius: 8px;
-        cursor: pointer;
-        font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif !important;
-        font-size: 1.2rem !important;
-        font-weight: 500 !important;
         width: 100%;
         max-width: 280px;
-        transition: all 0.3s ease;
-        text-align: center;
+        font-size: 1.2rem !important;
     }
 
-    .nav-links .mobile-theme-toggle:hover {
-        background: var(--accent-hover);
-        transform: translateY(-2px);
+    .dropdown-menu a:hover {
+        background: var(--accent-hover) !important;
     }
+
+
 
     .main-content {
-        padding: 1rem;
-        text-align: center;
-    }
-
-    .main-content > * {
-        text-align: center;
-    }
-
-    .card {
-        text-align: center;
-        margin: 0 auto;
-    }
-
-    .card h2 {
+        padding: 1.5rem;
         text-align: center !important;
     }
 
-    .card p {
+    .main-content * {
+        text-align: center !important;
+    }
+
+    .card {
+        text-align: center !important;
+        margin: 1rem auto;
+    }
+
+    .card * {
         text-align: center !important;
     }
 
     .card ul {
-        text-align: left;
-        max-width: 300px;
-        margin: 0 auto;
+        text-align: left !important;
+        max-width: 280px;
+        margin: 1rem auto !important;
         display: inline-block;
     }
 
     .card .btn {
-        display: block;
-        margin: 0.5rem auto;
-        text-align: center;
+        display: block !important;
+        margin: 1rem auto !important;
+        text-align: center !important;
         width: fit-content;
     }
 
     h1 {
-        font-size: 2.2rem !important;
+        font-size: 2.4rem !important;
         text-align: center !important;
+        margin: 1rem auto !important;
     }
 
     h2 {
-        font-size: 1.8rem !important;
+        font-size: 2rem !important;
         text-align: center !important;
+        margin: 1rem auto !important;
     }
 
     p {
         font-size: 1.6rem !important;
         text-align: center !important;
+        margin: 1rem auto !important;
     }
 
-    /* Force center alignment for all mobile content */
-    .main-content h1,
-    .main-content h2,
-    .main-content p,
-    .card h1,
-    .card h2,
-    .card p {
-        text-align: center !important;
+    /* Hamburger menu improvements */
+    .hamburger {
+        width: 25px;
+        height: 3px;
+        background: var(--text-primary);
+        margin: 4px 0;
+        transition: 0.3s;
+        border-radius: 2px;
+    }
+
+    .mobile-toggle.active .hamburger:nth-child(1) {
+        transform: rotate(-45deg) translate(-6px, 6px);
+    }
+
+    .mobile-toggle.active .hamburger:nth-child(2) {
+        opacity: 0;
+    }
+
+    .mobile-toggle.active .hamburger:nth-child(3) {
+        transform: rotate(45deg) translate(-6px, -6px);
     }
 }
 
