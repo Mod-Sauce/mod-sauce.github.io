@@ -104,81 +104,37 @@
             margin-left: auto;
             margin-right: auto;
         }
-        /* Mobile Menu Styles */
-        .mobile-menu {
-            display: none; /* Hidden by default on larger screens */
-            cursor: pointer;
-        }
 
-        .bar {
-            width: 30px;
-            height: 3px;
-            background-color: white;
-            margin: 6px 0;
-            transition: 0.4s;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) { /* Adjust breakpoint as needed */
-            .nav {
-                display: none; /* Hide the regular nav on mobile */
-                flex-direction: column;
-                position: absolute;
-                top: 60px; /* Adjust as needed based on header height */
-                left: 0;
-                width: 100%;
-                background-color: purple;
-                z-index: 10;
-                gap: 0;
-            }
-
-            .nav a, .dropdown {
-                display: block;
-                width: 100%;
-                text-align: left;
-            }
-
-            .dropdown-content {
-                position: static;
-                display: none;
-                background-color: #800080;
-                width: 100%;
-                box-shadow: none;
-            }
-
-            .mobile-menu {
-                display: block; /* Show the hamburger menu on mobile */
-            }
-
-            .nav.active {
-                display: flex; /* Show the nav when active */
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <img src="favicon.ico" alt="Logo">
-            Mod-Sauce Dev's
-        </div>
-        <div class="mobile-menu">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <nav class="nav">
-            <a href="index.html">Main</a>
-            <a href="about.html">About</a>
-            <div class="dropdown">
-                <a href="#">Projects ▼</a>
-                <div class="dropdown-content">
-                    <a href="impr.html">IMP</a>
-                    <a href="oer.html">OE</a>
-                </div>
+    <!-- Clean Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <img src="favicon.ico" alt="Mod-Sauce Logo">
+                Mod-Sauce Dev's
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle active">Projects ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="impr.html">IMP Renewed</a>
+                        <a href="oer.html">Otyacraft Engine Renewed</a>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="mobile-toggle">
+                <div class="hamburger"></div>
+                <div class="hamburger"></div>
+                <div class="hamburger"></div>
             </div>
-        </nav>
-    </div>
+        </div>
+    </nav>
     <div class="content">
         <h1>OER (Otyacraft Engine Renewed)</h1>
         <p>OER, or Otyacraft Engine Renewed, is our project dedicated to updating the Otyacraft Engine to be compatible with the newest modloader versions for Minecraft.</p>
@@ -198,16 +154,34 @@
         <p>Thank you for supporting OER!</p>
     </div>
     <script>
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const nav = document.querySelector('.nav');
+        // Mobile menu functionality
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
 
-        mobileMenu.addEventListener('click', () => {
-            nav.classList.toggle('active');
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        navLinks.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                navLinks.classList.remove('active');
+                mobileToggle.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+                mobileToggle.classList.remove('active');
+            }
         });
     </script>
-        <div id="spotify-embed"></div>
             <h2>A Song</h2>
                 <p>Cause why not?</p>
+        <div id="spotify-embed"></div>
                     <script>
                             fetch('embedd.txt') // adjust path if needed
                                         .then(res => res.text())

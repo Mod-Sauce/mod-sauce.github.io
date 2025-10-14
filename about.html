@@ -117,111 +117,106 @@
             margin-left: auto;
             margin-right: auto;
         }
-        /* Mobile Menu Styles */
-        .mobile-menu {
-            display: none; /* Hidden by default on larger screens */
-            cursor: pointer;
-        }
 
-        .bar {
-            width: 30px;
-            height: 3px;
-            background-color: white;
-            margin: 6px 0;
-            transition: 0.4s;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) { /* Adjust breakpoint as needed */
-            .nav {
-                display: none; /* Hide the regular nav on mobile */
-                flex-direction: column;
-                position: absolute;
-                top: 60px; /* Adjust as needed based on header height */
-                left: 0;
-                width: 100%;
-                background-color: purple;
-                z-index: 10;
-                gap: 0;
-            }
-            .nav a, .dropdown {
-                display: block;
-                width: 100%;
-                text-align: left;
-            }
-
-            .dropdown-content {
-                position: static;
-                display: none;
-                background-color: #800080;
-                width: 100%;
-                box-shadow: none;
-            }
-
-            .mobile-menu {
-                display: block; /* Show the hamburger menu on mobile */
-            }
-
-            .nav.active {
-                display: flex; /* Show the nav when active */
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <img src="favicon.ico" alt="Logo">
-            Mod-Sauce Dev's
+    <!-- Clean Navigation -->
+    <nav class="navbar">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <img src="favicon.ico" alt="Mod-Sauce Logo">
+                Mod-Sauce Dev's
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Projects ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="impr.html">IMP Renewed</a>
+                        <a href="oer.html">Otyacraft Engine Renewed</a>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="mobile-toggle">
+                <div class="hamburger"></div>
+                <div class="hamburger"></div>
+                <div class="hamburger"></div>
+            </div>
         </div>
-        <div class="mobile-menu">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <nav class="nav">
-            <a href="index.html">Main</a>
-            <a class="navp"href="about.html">About</a>
-            <div class="dropdown">
-                <a href="#">Projects ▼</a>
-                <div class="dropdown-content">
-                    <a href="impr.html">IMP</a>
-                    <a href="oer.html">OE</a>
+    </nav>
+    <!-- Main Content -->
+    <main class="content">
+        <div class="container">
+            <h1>About Mod-Sauce Dev's</h1>
+            <p>We are a team of passionate Minecraft mod developers dedicated to reviving and maintaining older, abandoned mods.</p>
+
+            <div class="card">
+                <h2>Our Mission</h2>
+                <p>Our mission is to ensure that classic Minecraft mods remain accessible and compatible with modern versions of the game. We believe that these mods contribute significantly to the rich history and diversity of the Minecraft modding community.</p>
+            </div>
+
+            <div class="card">
+                <h2>What We Do</h2>
+                <p>We specialize in:</p>
+                <ul>
+                    <li>Repairing and updating outdated mods</li>
+                    <li>Maintaining the original spirit and vision of the mods</li>
+                    <li>Providing community support and updates</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <h2>Our Team</h2>
+                <p>We are a small, dedicated team of developers with a shared love for Minecraft and its modding community. We are committed to providing high-quality, reliable mods for everyone to enjoy.</p>
+                <div class="center">
+                    <a href="https://github.com/Mooo0042" class="btn">Us3r0 - GitHub</a>
+                    <a href="https://github.com/Shadowbee27" class="btn">Shadowbee - GitHub</a>
                 </div>
             </div>
-        </nav>
-    </div>
-    <div class="content">
-        <h1>About Mod-Sauce Dev's</h1>
-        <p>We are a team of passionate Minecraft mod developers dedicated to reviving and maintaining older, abandoned mods.</p>
-        <h2>Our Mission</h2>
-        <p>Our mission is to ensure that classic Minecraft mods remain accessible and compatible with modern versions of the game. We believe that these mods contribute significantly to the rich history and diversity of the Minecraft modding community.</p>
-        <h2>What We Do</h2>
-        <p>We specialize in:</p>
-        <ul>
-            <li>Repairing and updating outdated mods.</li>
-            <li>Maintaining the original spirit and vision of the mods.</li>
-            <li>Providing community support and updates.</li>
-        </ul>
-        <h2>Our Team</h2>
-        <p>We are a small, dedicated team of developers with a shared love for Minecraft and its modding community. We are committed to providing high-quality, reliable mods for everyone to enjoy.</p>
-        <a href="https://github.com/Mooo0042"><p>Us3r0</p></a>
-        <a href="https://github.com/Shadowbee27"><p>Shadowbee</p></a>
-        <h2>Get Involved</h2>
-        <p>If you're interested in contributing or have any questions, feel free to join our <a href="https://discord.gg/VNrzdd5ErJ">Discord server</a>. We welcome feedback, suggestions, and contributions from the community.</p>
-        <p>Thank you for your support!</p>
-    </div>
-    <script>
-        const mobileMenu = document.querySelector('.mobile-menu');
-        const nav = document.querySelector('.nav');
 
-        mobileMenu.addEventListener('click', () => {
-            nav.classList.toggle('active');
+            <div class="card">
+                <h2>Get Involved</h2>
+                <p>If you're interested in contributing or have any questions, feel free to join our Discord community. We welcome feedback, suggestions, and contributions from the community.</p>
+                <div class="center">
+                    <a href="https://discord.gg/VNrzdd5ErJ" class="btn">Join Discord Server</a>
+                </div>
+                <p>Thank you for your support!</p>
+            </div>
+        </div>
+    </main>
+    <script>
+        // Mobile menu functionality
+        const mobileToggle = document.querySelector('.mobile-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        mobileToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        navLinks.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                navLinks.classList.remove('active');
+                mobileToggle.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
+                navLinks.classList.remove('active');
+                mobileToggle.classList.remove('active');
+            }
         });
     </script>
-    <div id="spotify-embed"></div>
     <h2>A Song</h2>
     <p>Cause why not?</p>
+    <div id="spotify-embed"></div>
     <script>
         fetch('embedd.txt') // adjust path if needed
             .then(res => res.text())

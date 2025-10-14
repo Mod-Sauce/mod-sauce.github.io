@@ -107,81 +107,37 @@
             margin-left: auto;
             margin-right: auto;
         }
-        /* Mobile Menu Styles */
-        .mobile-menu {
-            display: none; /* Hidden by default on larger screens */
-            cursor: pointer;
-        }
 
-        .bar {
-            width: 30px;
-            height: 3px;
-            background-color: white;
-            margin: 6px 0;
-            transition: 0.4s;
-        }
-
-        /* Responsive Styles */
-        @media (max-width: 768px) { /* Adjust breakpoint as needed */
-            .nav {
-                display: none; /* Hide the regular nav on mobile */
-                flex-direction: column;
-                position: absolute;
-                top: 60px; /* Adjust as needed based on header height */
-                left: 0;
-                width: 100%;
-                background-color: purple;
-                z-index: 10;
-                gap: 0;
-            }
-
-            .nav a, .dropdown {
-                display: block;
-                width: 100%;
-                text-align: left;
-            }
-
-            .dropdown-content {
-                position: static;
-                display: none;
-                background-color: #800080;
-                width: 100%;
-                box-shadow: none;
-            }
-
-            .mobile-menu {
-                display: block; /* Show the hamburger menu on mobile */
-            }
-
-            .nav.active {
-                display: flex; /* Show the nav when active */
-            }
-        }
     </style>
 </head>
 <body>
-    <div class="header">
-        <div class="logo">
-            <img src="favicon.ico" alt="Logo">
-            Mod-Sauce Dev's
-        </div>
-        <div class="mobile-menu">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-        <nav class="nav">
-            <a href="index.html">Main</a>
-            <a href="about.html">About</a>
-            <div class="dropdown">
-                <a href="#">Projects ▼</a>
-                <div class="dropdown-content">
-                    <a href="impr.html">IMP</a>
-                    <a href="oer.html">OE</a>
+    <!-- Modern Navigation Header -->
+    <header class="header">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="favicon.ico" alt="Mod-Sauce Logo">
+                Mod-Sauce Dev's
+            </a>
+
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <div class="dropdown">
+                    <a href="#">Projects ▼</a>
+                    <div class="dropdown-content">
+                        <a href="impr.html">IMP Renewed</a>
+                        <a href="oer.html">Ore Excavation</a>
+                    </div>
                 </div>
+            </nav>
+
+            <div class="mobile-menu">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
             </div>
-        </nav>
-    </div>
+        </div>
+    </header>
     <div class="content">
         <h1>Welcome to Mod-Sauce Dev's</h1>
         <p>Hello and welcome to our website! Here you can find our projects and learn more about what we do as Minecraft mod developers.</p>
@@ -199,6 +155,23 @@
 
         mobileMenu.addEventListener('click', () => {
             nav.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a link
+        nav.addEventListener('click', (e) => {
+            if (e.target.tagName === 'A') {
+                nav.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target) && !mobileMenu.contains(e.target)) {
+                nav.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            }
         });
     </script>
 </body>
