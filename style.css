@@ -345,6 +345,8 @@ a:hover {
         position: fixed;
         top: 0;
         left: 0;
+        right: 0;
+        bottom: 0;
         width: 100%;
         height: 100vh;
         background: var(--bg-primary);
@@ -352,18 +354,24 @@ a:hover {
         justify-content: center;
         align-items: center;
         gap: 2rem;
-        z-index: 999;
+        z-index: 9999;
         opacity: 0;
         visibility: hidden;
         transition: all 0.3s ease;
-        padding: 2rem;
+        padding: 2rem 1rem 6rem 1rem; /* add bottom padding for comfortable scroll */
         text-align: center;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .nav-links.active {
         display: flex;
         opacity: 1;
         visibility: visible;
+        height: 100vh;
+        bottom: 0;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
     }
 
     .nav-links a {
@@ -583,7 +591,7 @@ a:hover {
 
 /* --- Accessible burger + unified theme toggle styles (appended) --- */
 .site-nav { display:flex; align-items:center; gap:12px; }
-.site-nav .nav-content { display:flex; align-items:center; gap:12px; width:100%; }
+.site-nav .nav-content { display:flex; align-items:center; gap:12px; width:100%; justify-content: space-between; }
 .burger {
     background:transparent; border:0; padding:8px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; color:var(--text-primary);
 }
@@ -611,12 +619,36 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display:none; }
 html[data-theme="dark"] .theme-toggle .icon-moon { display:inline; }
 
 @media (min-width: 720px) {
-  .nav-menu { position:static; display:flex; gap:12px; background:transparent; box-shadow:none; transform:none; opacity:1; height:auto; padding:0; }
+    .nav-menu { position:static; display:flex; gap:12px; background:transparent; box-shadow:none; transform:none; opacity:1; height:auto; padding:0; }
+    /* If menu has the hidden attribute, ensure desktop still shows it */
+    .nav-menu[hidden] { opacity:1 !important; transform:none !important; height:auto !important; pointer-events:auto !important; visibility:visible !important; }
   #nav-toggle { display:none; }
+}
+
+@media (max-width: 768px) {
+    .nav-menu { position: static; background: transparent; box-shadow: none; padding: 0; border-radius: 0; transform: none !important; }
+    .nav-menu[hidden] { height: auto; }
+    .navbar { overflow: visible !important; }
+}
+
+/* Make sure theme toggle sits to the right and doesn't overlap the burger on mobile */
+.site-nav .theme-toggle { margin-left: 12px; z-index: 1002; }
+.site-nav .burger { z-index: 1003; }
+
+@media (max-width: 768px) {
+    /* Override older fixed positioning so theme button appears inside header */
+    .theme-toggle { position: static !important; top: auto !important; right: auto !important; z-index: 1002 !important; margin-left: 8px !important; }
 }
 
 /* ensure the existing mobile-toggle/hamburger don't conflict if present */
 .mobile-toggle { display:none !important; }
+
+/* TEMP: hide the burger button while debugging mobile interactions
+    (removed) */
+
+/* TEMP: hide the theme toggle because it does not work right now
+    Remove this block to restore the theme toggle: */
+.site-nav .theme-toggle { display: none !important; pointer-events: none !important; }
 
 
 
