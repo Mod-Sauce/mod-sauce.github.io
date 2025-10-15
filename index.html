@@ -9,33 +9,36 @@
 
 </head>
 <body>
-    <!-- Clean Navigation -->
-    <nav class="navbar">
+    <!-- Accessible Navigation -->
+    <nav class="navbar site-nav" role="navigation" aria-label="Main">
         <div class="nav-content">
             <a href="index.html" class="logo">
                 <img src="favicon.ico" alt="Mod-Sauce Logo">
                 Mod-Sauce Dev's
             </a>
 
-            <ul class="nav-links">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="about.html">About</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Projects ▼</a>
-                    <div class="dropdown-menu">
-                        <a href="impr.html">IMP Renewed</a>
-                        <a href="oer.html">Otyacraft Engine Renewed</a>
+            <button id="nav-toggle" class="burger" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle menu">
+                <span class="burger-box"><span class="burger-inner"></span></span>
+            </button>
+
+            <div id="primary-menu" class="nav-menu" hidden>
+                <div class="nav-links">
+                    <a href="index.html" class="active">Home</a>
+                    <a href="about.html">About</a>
+                    <div class="dropdown">
+                        <a href="#">Projects ▼</a>
+                        <div class="dropdown-menu">
+                            <a href="impr.html">IMP Renewed</a>
+                            <a href="oer.html">Otyacraft Engine Renewed</a>
+                        </div>
                     </div>
-                </li>
-            </ul>
-
-            <button class="theme-toggle" onclick="toggleTheme()">🌙 Dark</button>
-
-            <div class="mobile-toggle">
-                <div class="hamburger"></div>
-                <div class="hamburger"></div>
-                <div class="hamburger"></div>
+                </div>
             </div>
+
+            <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle color theme">
+                <span class="icon-sun" aria-hidden="true">☀️</span>
+                <span class="icon-moon" aria-hidden="true">🌙</span>
+            </button>
         </div>
     </nav>
     <!-- Main Content -->
@@ -62,69 +65,7 @@
             <a href="https://discord.gg/VNrzdd5ErJ" class="btn">Join Discord</a>
         </div>
     </main>
-    <script>
-        // Mobile menu functionality
-        const mobileToggle = document.querySelector('.mobile-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
-        mobileToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            mobileToggle.classList.toggle('active');
-        });
-
-        // Close mobile menu when clicking on a link
-        navLinks.addEventListener('click', (e) => {
-            if (e.target.tagName === 'A') {
-                navLinks.classList.remove('active');
-                mobileToggle.classList.remove('active');
-            }
-        });
-
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navLinks.contains(e.target) && !mobileToggle.contains(e.target)) {
-                navLinks.classList.remove('active');
-                mobileToggle.classList.remove('active');
-            }
-        });
-
-        // Theme toggle functionality
-        function toggleTheme() {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            const themeButton = document.querySelector('.theme-toggle');
-            const mobileThemeButton = document.querySelector('.mobile-theme-toggle');
-
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-
-            // Update button text for both desktop and mobile
-            if (newTheme === 'light') {
-                if (themeButton) themeButton.textContent = '☀️ Light';
-                if (mobileThemeButton) mobileThemeButton.textContent = '☀️ Light';
-            } else {
-                if (themeButton) themeButton.textContent = '🌙 Dark';
-                if (mobileThemeButton) mobileThemeButton.textContent = '🌙 Dark';
-            }
-        }
-
-        // Load saved theme on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            const savedTheme = localStorage.getItem('theme') || 'dark';
-            const themeButton = document.querySelector('.theme-toggle');
-            const mobileThemeButton = document.querySelector('.mobile-theme-toggle');
-
-            document.documentElement.setAttribute('data-theme', savedTheme);
-
-            if (savedTheme === 'light') {
-                if (themeButton) themeButton.textContent = '☀️ Light';
-                if (mobileThemeButton) mobileThemeButton.textContent = '☀️ Light';
-            } else {
-                if (themeButton) themeButton.textContent = '🌙 Dark';
-                if (mobileThemeButton) mobileThemeButton.textContent = '🌙 Dark';
-            }
-        });
-    </script>
+    <script src="/assets/js/nav-theme.js"></script>
             <h2>A Song</h2>
                 <p>Cause why not?</p>
         <div id="spotify-embed"></div>
