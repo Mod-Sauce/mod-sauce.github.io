@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Uploads - Mod-Sauce Dev's</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        .upload-card {
+            max-width: 500px;
+            margin: 3rem auto;
+            transition: all 0.3s ease;
+        }
+
+        .input-group {
+            margin: 1.5rem 0;
+            opacity: 1;
+            max-height: 200px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .input-group.hidden {
+            opacity: 0;
+            max-height: 0;
+            margin: 0;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .input-group select {
+            width: 100%;
+            padding: 0.8rem;
+            font-size: 1rem;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .input-group select:hover {
+            border-color: var(--accent-color);
+        }
+
+        .input-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+        }
+
+        #download-btn {
+            width: 100%;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Accessible Navigation -->
+    <nav class="navbar site-nav" role="navigation" aria-label="Main">
+        <div class="nav-content">
+            <a href="index.html" class="logo">
+                <img src="favicon.ico" alt="Mod-Sauce Logo">
+                Mod-Sauce Dev's
+            </a>
+
+            <button id="nav-toggle" class="burger" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle menu">
+                <span class="burger-box"><span class="burger-inner"></span></span>
+            </button>
+
+            <div id="primary-menu" class="nav-menu" hidden>
+                <div class="nav-links">
+                    <a href="index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <div class="dropdown">
+                        <a href="#">Projects ▼</a>
+                        <div class="dropdown-menu">
+                            <a href="impr.html">IMP Renewed</a>
+                            <a href="oer.html">Otyacraft Engine Renewed</a>
+                        </div>
+                    </div>
+                    <a href="test-uploads.html" class="active">Test Uploads</a>
+                </div>
+            </div>
+
+            <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle color theme">
+                <span class="icon-sun" aria-hidden="true">☀️</span>
+                <span class="icon-moon" aria-hidden="true">🌙</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="card upload-card">
+            <div class="input-group">
+                <label for="project-select">Project</label>
+                <select id="project-select">
+                    <option value="">Select Project</option>
+                </select>
+            </div>
+
+            <div class="input-group hidden" id="version-group">
+                <label for="version-select">Version</label>
+                <select id="version-select">
+                    <option value="">Select Version</option>
+                </select>
+            </div>
+
+            <div class="input-group hidden" id="download-group">
+                <a href="#" id="download-btn" class="btn">Download</a>
+            </div>
+        </div>
+    </main>
+    
+    <script src="assets/js/nav-theme.js"></script>
+    <script>
+        let downloadsConfig = {};
+
+        fetch('downloads.txt')
+            .then(res => res.text())
+            .then(data => {
+                downloadsConfig = parseConfig(data);
+                populateProjects();
+            })
+            .catch(err => {
+                console.error('Error loading downloads.txt:', err);
+            });
+
+        function parseConfig(text) {
+            const lines = text.split('\n').filter(line => line.trim() && !line.trim().startsWith('#'));
+            const config = {};
+            let currentProject = null;
+
+            lines.forEach(line => {
+                const trimmed = line.trim();
+                
+                if (!line.startsWith(' ') && !line.startsWith('\t')) {
+                    currentProject = trimmed;
+                    config[currentProject] = {};
+                } else if (currentProject && trimmed.includes('=')) {
+                    const [version, url] = trimmed.split('=').map(s => s.trim());
+                    config[currentProject][version] = url;
+                }
+            });
+
+            return config;
+        }
+
+        function populateProjects() {
+            const projectSelect = document.getElementById('project-select');
+            const projects = Object.keys(downloadsConfig);
+
+            projects.forEach(project => {
+                const option = document.createElement('option');
+                option.value = project;
+                option.textContent = project;
+                projectSelect.appendChild(option);
+            });
+        }
+
+        document.getElementById('project-select').addEventListener('change', function() {
+            const versionGroup = document.getElementById('version-group');
+            const downloadGroup = document.getElementById('download-group');
+            const versionSelect = document.getElementById('version-select');
+            const project = this.value;
+
+            versionSelect.innerHTML = '<option value="">Select Version</option>';
+            downloadGroup.classList.add('hidden');
+
+            if (project && downloadsConfig[project]) {
+                const versions = Object.keys(downloadsConfig[project]);
+                versions.forEach(version => {
+                    const option = document.createElement('option');
+                    option.value = version;
+                    option.textContent = version;
+                    versionSelect.appendChild(option);
+                });
+                versionGroup.classList.remove('hidden');
+            } else {
+                versionGroup.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('version-select').addEventListener('change', function() {
+            const downloadGroup = document.getElementById('download-group');
+            const downloadBtn = document.getElementById('download-btn');
+            const project = document.getElementById('project-select').value;
+            const version = this.value;
+
+            if (project && version && downloadsConfig[project][version]) {
+                downloadBtn.href = downloadsConfig[project][version];
+                downloadGroup.classList.remove('hidden');
+            } else {
+                downloadGroup.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
