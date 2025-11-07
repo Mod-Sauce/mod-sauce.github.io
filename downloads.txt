@@ -1,5 +1,5 @@
 IMP Renewed
-    Forge 1.19.2 = https://pidxcndeajrmjzgnizaw.supabase.co/storage/v1/object/public/msbucket/1.19.2/iammusicplayer-forge-3.20.2-1.19.2-mc1.19.2-3.20.2-1.19.2.jarimp-1.19.2.jar
+    Forge 1.19.2 = https://pidxcndeajrmjzgnizaw.supabase.co/storage/v1/object/public/msbucket/1.19.2/iammusicplayer-forge-3.20.2-1.19.2-mc1.19.2-3.20.2-1.19.2.jar
     Fabric 1.19.2 = https://pidxcndeajrmjzgnizaw.supabase.co/storage/v1/object/public/msbucket/1.19.2/iammusicplayer-fabric-3.20.2-1.19.2-mc1.19.2-3.20.2-1.19.2.jar
     Forge 1.18.2 = https://pidxcndeajrmjzgnizaw.supabase.co/storage/v1/object/public/msbucket/iammusicplayer_renewed-forge-1.18.2-3.18.0-Alpha1.jar
     Fabric 1.18.2 = https://pidxcndeajrmjzgnizaw.supabase.co/storage/v1/object/public/msbucket/iammusicplayer_renewed-fabric-1.18.2-3.18.0-Alpha1.jar
