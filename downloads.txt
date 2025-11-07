@@ -1,11 +1,6 @@
 IMP Renewed
-    Minecraft 1.21.2 = https://example.com/imp-1.21.2.jar
-    Minecraft 1.20.1 = https://example.com/imp-1.20.1.jar
     Minecraft 1.19.2 = https://example.com/imp-1.19.2.jar
     Minecraft 1.18.2 = https://example.com/imp-1.18.2.jar
 
 Otyacraft Engine Renewed
-    Minecraft 1.21.2 = https://example.com/oer-1.21.2.jar
-    Minecraft 1.20.1 = https://example.com/oer-1.20.1.jar
-    Minecraft 1.19.2 = https://example.com/oer-1.19.2.jar
-    Minecraft 1.18.2 = https://example.com/oer-1.18.2.jar
+    No Downloads available
