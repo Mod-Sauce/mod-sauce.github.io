@@ -6,42 +6,10 @@
     <title>OER - Mod-Sauce Dev's</title>
     <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/theme-toggle.css">
 
 </head>
 <body>
-    <!-- Accessible Navigation -->
-    <nav class="navbar site-nav" role="navigation" aria-label="Main">
-        <div class="nav-content">
-            <a href="index.html" class="logo">
-                <img src="favicon.ico" alt="Mod-Sauce Logo">
-                Mod-Sauce Dev's
-            </a>
-
-            <button id="nav-toggle" class="burger" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle menu">
-                <span class="burger-box"><span class="burger-inner"></span></span>
-            </button>
-
-            <div id="primary-menu" class="nav-menu" hidden>
-                <div class="nav-links">
-                    <a href="index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <div class="dropdown">
-                        <a href="#" class="active">Projects ▼</a>
-                        <div class="dropdown-menu">
-                            <a href="impr.html">IMP Renewed</a>
-                            <a href="oer.html">Otyacraft Engine Renewed</a>
-                        </div>
-                        <a href="testing.html" class="active">Test Uploads</a>
-                    </div>
-                </div>
-            </div>
-
-            <button id="theme-toggle" class="theme-toggle" aria-pressed="false" aria-label="Toggle color theme">
-                <span class="icon-sun" aria-hidden="true">☀️</span>
-                <span class="icon-moon" aria-hidden="true">🌙</span>
-            </button>
-        </div>
-    </nav>
     <!-- Main Content -->
     <main class="main-content">
         <h1>OER (Otyacraft Engine Renewed)</h1>
@@ -74,6 +42,8 @@
             <p>Thank you for supporting OER!</p>
         </div>
     </main>
+    <script src="assets/js/navbar-loader.js"></script>
     <script src="assets/js/nav-theme.js"></script>
+    <script src="assets/js/theme-toggle.js"></script>
 </body>
 </html>

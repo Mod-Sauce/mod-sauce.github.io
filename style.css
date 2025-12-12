@@ -20,6 +20,25 @@
 
 /* CSS Variables for Light/Dark Mode */
 :root {
+    /* Default to light mode */
+    --bg-dark: hsl(270 86% 93%);
+    --bg: hsl(270 100% 98%);
+    --bg-light: hsl(270 100% 100%);
+    --text: hsl(275 100% 7%);
+    --text-muted: hsl(273, 63%, 25%);
+    --highlight: hsl(271 100% 100%);
+    --border: hsl(272 25% 56%);
+    --border-muted: hsl(271 36% 68%);
+    --primary: hsl(271 54% 76%);
+    --secondary: hsl(81 84% 17%);
+    --danger: hsl(8 36% 41%);
+    --warning: hsl(52 58% 28%);
+    --success: hsl(152 45% 31%);
+    --info: hsl(217 38% 43%);
+}
+
+/* Dark mode */
+[data-theme="dark"] {
     --bg-dark: hsl(266 93% 3%);
     --bg: hsl(273 65% 6%);
     --bg-light: hsl(273 41% 10%);
@@ -34,23 +53,6 @@
     --warning: hsl(51 32% 52%);
     --success: hsl(149 31% 55%);
     --info: hsl(217 52% 67%);
-}
-
-[data-theme="light"] {
-    --bg-dark: hsl(270 86% 93%);
-    --bg: hsl(270 100% 98%);
-    --bg-light: hsl(270 100% 100%);
-    --text: hsl(275 100% 7%);
-    --text-muted: hsl(273 31% 32%);
-    --highlight: hsl(271 100% 100%);
-    --border: hsl(272 25% 56%);
-    --border-muted: hsl(271 36% 68%);
-    --primary: hsl(273, 81%, 24%);
-    --secondary: hsl(81 84% 17%);
-    --danger: hsl(8 36% 41%);
-    --warning: hsl(52 58% 28%);
-    --success: hsl(152 45% 31%);
-    --info: hsl(217 38% 43%);
 }
 
 /* Simple, Clean Design */
@@ -93,23 +95,7 @@ body {
     width: 100%;
 }
 
-/* Theme Toggle Button */
-.theme-toggle {
-    background: var(--primary);
-    color: var(--text);
-    border: none;
-    padding: 0.5rem 1rem;
-    border-radius: 6px;
-    cursor: pointer;
-    font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    font-size: 0.9rem;
-    margin-left: 1rem;
-    transition: background-color 0.3s ease;
-}
 
-.theme-toggle:hover {
-    background: var(--secondary);
-}
 
 .logo {
     color: var(--text);
@@ -279,6 +265,19 @@ p {
     border-radius: 8px;
     border: 1px solid var(--border);
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Center buttons inside cards */
+.card .btn,
+.card .btnsec,
+.card a.btn,
+.card a.btnsec {
+    display: block;
+    margin: 0.5rem auto;
+    text-align: center;
 }
 
 /* Spotify Embed */
@@ -340,7 +339,7 @@ ul {
 
 ul li {
     padding: 0.5rem 0;
-    color: #cccccc;
+    color: var(--text-muted);
     font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
 
@@ -620,8 +619,8 @@ a:hover {
 
 
 /* --- Accessible burger + unified theme toggle styles (appended) --- */
-.site-nav { display:flex; align-items:center; gap:12px; }
-.site-nav .nav-content { display:flex; align-items:center; gap:12px; width:100%; justify-content: space-between; }
+.site-nav { display:flex; align-items:center; gap:12px; width:100%; }
+.site-nav .nav-content { display:flex; align-items:center; gap:12px; width:100%; justify-content: space-between; max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
 .burger {
     background:transparent; border:0; padding:8px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; color:var(--text);
 }
@@ -643,11 +642,6 @@ a:hover {
 .nav-menu .nav-links { display:flex; gap:12px; align-items:center; }
 .nav-menu .nav-links a { display:block; }
 
-.theme-toggle { display:inline-grid; grid-auto-flow:column; gap:6px; align-items:center; background:transparent; border:1px solid rgba(0,0,0,.08); padding:6px 8px; border-radius:999px; cursor:pointer; color:var(--text-primary); }
-.theme-toggle .icon-moon { display:none; }
-html[data-theme="dark"] .theme-toggle .icon-sun { display:none; }
-html[data-theme="dark"] .theme-toggle .icon-moon { display:inline; }
-
 @media (min-width: 720px) {
     .nav-menu { position:static; display:flex; gap:12px; background:transparent; box-shadow:none; transform:none; opacity:1; height:auto; padding:0; }
     /* If menu has the hidden attribute, ensure desktop still shows it */
@@ -661,24 +655,8 @@ html[data-theme="dark"] .theme-toggle .icon-moon { display:inline; }
     .navbar { overflow: visible !important; }
 }
 
-/* Make sure theme toggle sits to the right and doesn't overlap the burger on mobile */
-.site-nav .theme-toggle { margin-left: 12px; z-index: 1002; }
-.site-nav .burger { z-index: 1003; }
-
-@media (max-width: 768px) {
-    /* Override older fixed positioning so theme button appears inside header */
-    .theme-toggle { position: static !important; top: auto !important; right: auto !important; z-index: 1002 !important; margin-left: 8px !important; }
-}
-
 /* ensure the existing mobile-toggle/hamburger don't conflict if present */
 .mobile-toggle { display:none !important; }
-
-/* TEMP: hide the burger button while debugging mobile interactions
-    (removed) */
-
-/* TEMP: hide the theme toggle because it does not work right now
-    Remove this block to restore the theme toggle: */
-.site-nav .theme-toggle { display: none !important; pointer-events: none !important; }
 
 
 

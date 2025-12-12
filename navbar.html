@@ -1,0 +1,33 @@
+<!-- Accessible Navigation -->
+<nav class="navbar site-nav" role="navigation" aria-label="Main">
+    <div class="nav-content">
+        <a href="index.html" class="logo">
+            <img src="favicon.ico" alt="Mod-Sauce Logo">
+            Mod-Sauce Dev's
+        </a>
+
+        <button id="nav-toggle" class="burger" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle menu">
+            <span class="burger-box"><span class="burger-inner"></span></span>
+        </button>
+
+        <div id="primary-menu" class="nav-menu" hidden>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <div class="dropdown">
+                    <a href="#">Projects ▼</a>
+                    <div class="dropdown-menu">
+                        <a href="impr.html">IMP Renewed</a>
+                        <a href="oer.html">Otyacraft Engine Renewed</a>
+                    </div>
+                </div>
+                <a href="testing.html">Test Uploads</a>
+            </div>
+        </div>
+
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light mode" type="button">
+            <span class="toggle-icon">🌙</span>
+        </button>
+    </div>
+</nav>
+

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Toggle Test - Mod-Sauce Dev's</title>
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico?">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/theme-toggle.css">
+</head>
+<body>
+    <main class="main-content">
+        <h1>Theme Toggle Test</h1>
+        <p>Click the theme toggle button (☀️/🌙) in the navbar to switch between dark and light modes.</p>
+        
+        <div class="card">
+            <h2>Current Theme</h2>
+            <p id="current-theme">Loading...</p>
+            <p id="theme-status">Checking theme...</p>
+        </div>
+
+        <div class="card">
+            <h2>Test Instructions</h2>
+            <ol style="text-align: left; display: inline-block;">
+                <li>Look for the sun/moon icon in the top-right of the navbar</li>
+                <li>Click it to toggle between dark and light modes</li>
+                <li>The page should change colors immediately</li>
+                <li>Refresh the page - your theme preference should be remembered</li>
+            </ol>
+        </div>
+
+        <div class="card">
+            <h2>Debug Info</h2>
+            <p id="debug-info">Initializing...</p>
+        </div>
+    </main>
+
+    <script src="assets/js/navbar-loader.js"></script>
+    <script src="assets/js/nav-theme.js"></script>
+    <script src="assets/js/theme-toggle.js"></script>
+    <script>
+        // Test script to verify theme toggle is working
+        function updateThemeInfo() {
+            const theme = document.documentElement.getAttribute('data-theme') || 'light';
+            const currentThemeEl = document.getElementById('current-theme');
+            const themeStatusEl = document.getElementById('theme-status');
+            const debugEl = document.getElementById('debug-info');
+            
+            currentThemeEl.textContent = theme === 'dark' ? '🌙 Dark Mode' : '☀️ Light Mode';
+            themeStatusEl.textContent = `Theme is set to: ${theme}`;
+            
+            const themeBtn = document.querySelector('.theme-toggle');
+            const navbarLoaded = !!document.querySelector('nav.site-nav');
+            
+            debugEl.innerHTML = `
+                <strong>Navbar loaded:</strong> ${navbarLoaded ? '✅ Yes' : '❌ No'}<br>
+                <strong>Theme button found:</strong> ${themeBtn ? '✅ Yes' : '❌ No'}<br>
+                <strong>Theme button visible:</strong> ${themeBtn && themeBtn.offsetParent !== null ? '✅ Yes' : '❌ No'}<br>
+                <strong>LocalStorage theme:</strong> ${localStorage.getItem('site-theme') || 'Not set'}<br>
+                <strong>data-theme attribute:</strong> ${theme}
+            `;
+        }
+
+        // Update on load
+        document.addEventListener('navbarLoaded', updateThemeInfo);
+        document.addEventListener('DOMContentLoaded', updateThemeInfo);
+        
+        // Update when theme changes
+        const observer = new MutationObserver(updateThemeInfo);
+        observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+        
+        // Initial update
+        setTimeout(updateThemeInfo, 100);
+    </script>
+</body>
+</html>
+

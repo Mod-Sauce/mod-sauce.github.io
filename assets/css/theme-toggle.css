@@ -1,0 +1,46 @@
+/* Theme Toggle Button Styles */
+.theme-toggle-btn {
+    background: var(--primary);
+    color: var(--text);
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    z-index: 1001;
+    pointer-events: auto !important;
+    position: relative;
+}
+
+.theme-toggle-btn:hover {
+    background: var(--secondary);
+    transform: scale(1.05);
+}
+
+.theme-toggle-btn:active {
+    transform: scale(0.95);
+}
+
+.toggle-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle-btn:hover .toggle-icon {
+    transform: rotate(20deg);
+}
+
+/* Ensure toggle is visible on all screen sizes */
+@media (max-width: 768px) {
+    .theme-toggle-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 1rem;
+        margin-left: 0.5rem;
+    }
+}
+

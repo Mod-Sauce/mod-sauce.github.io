@@ -48,15 +48,6 @@
       btn.innerHTML = '<span class="burger-box"><span class="burger-inner"></span></span>';
       left.appendChild(btn);
 
-      // theme toggle
-      const themeBtn = document.createElement('button');
-      themeBtn.id = 'theme-toggle';
-      themeBtn.className = 'theme-toggle';
-      themeBtn.setAttribute('aria-pressed', 'false');
-      themeBtn.setAttribute('aria-label', 'Toggle color theme');
-      themeBtn.innerHTML = '<span class="icon-sun" aria-hidden="true">☀️</span><span class="icon-moon" aria-hidden="true">🌙</span>';
-      left.appendChild(themeBtn);
-
       // menu: try to reuse existing .nav-links
       const menu = document.createElement('div');
       menu.id = 'primary-menu';
@@ -84,7 +75,6 @@
     siteNavs.forEach((nav) => {
       const navToggle = nav.querySelector('#nav-toggle');
       const menu = nav.querySelector('#primary-menu');
-      const themeBtn = nav.querySelector('#theme-toggle');
 
       // Ensure menu visibility based on viewport
       const innerLinks = menu ? menu.querySelector('.nav-links') : null;
@@ -141,26 +131,16 @@
         });
       }
 
-        // Theme toggle wiring
-      if (themeBtn) {
-        themeBtn.setAttribute('aria-pressed', document.documentElement.getAttribute('data-theme') === 'dark');
-        themeBtn.addEventListener('click', (e) => {
-          e.stopPropagation();
-          console.debug('nav-theme: themeBtn click, before theme=', document.documentElement.getAttribute('data-theme'));
-          const cur = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-          const next = cur === 'dark' ? 'light' : 'dark';
-          applyTheme(next);
-          localStorage.setItem(THEME_KEY, next);
-          themeBtn.setAttribute('aria-pressed', next === 'dark');
-          console.debug('nav-theme: themeBtn click, after theme=', document.documentElement.getAttribute('data-theme'));
-        });
-      }
+
     });
     console.debug('nav-theme: init done, navs=', siteNavs.length);
     } catch (err) {
       console.error('nav-theme: init error', err);
     }
   }
+
+  // Listen for navbar loaded event (from navbar-loader.js)
+  document.addEventListener('navbarLoaded', initNavAndTheme);
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initNavAndTheme);
@@ -173,12 +153,14 @@
   document.addEventListener('click', (e) => {
     const btn = e.target.closest && e.target.closest('.burger');
     if (!btn) return;
+    e.preventDefault();
+    e.stopPropagation();
     const nav = btn.closest && btn.closest('nav.site-nav');
     if (!nav) return;
     const navToggle = btn;
     const menu = nav.querySelector('#primary-menu');
     const innerLinks = menu ? menu.querySelector('.nav-links') : null;
-    console.debug('nav-theme: delegated burger click, innerWidth=', window.innerWidth, 'menu.hidden=', menu ? menu.hidden : 'no-menu');
+    console.log('Burger menu clicked!');
     const open = navToggle.getAttribute('aria-expanded') === 'true';
     navToggle.setAttribute('aria-expanded', String(!open));
     if (open) {
@@ -191,4 +173,6 @@
       if (first) first.focus();
     }
   });
+
+
 })();
