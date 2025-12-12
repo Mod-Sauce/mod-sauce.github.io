@@ -28,7 +28,7 @@
     --highlight: hsl(272 24% 44%);
     --border: hsl(273 31% 32%);
     --border-muted: hsl(274 45% 22%);
-    --primary: hsl(271 54% 76%);
+    --primary: hsl(273, 81%, 24%);
     --secondary: hsl(87 35% 61%);
     --danger: hsl(9 47% 65%);
     --warning: hsl(51 32% 52%);
@@ -45,7 +45,7 @@
     --highlight: hsl(271 100% 100%);
     --border: hsl(272 25% 56%);
     --border-muted: hsl(271 36% 68%);
-    --primary: hsl(273 35% 33%);
+    --primary: hsl(273, 81%, 24%);
     --secondary: hsl(81 84% 17%);
     --danger: hsl(8 36% 41%);
     --warning: hsl(52 58% 28%);
@@ -238,7 +238,7 @@ p {
 .btn {
     display: inline-block;
     align-self: center;
-    background: var(--bg-light);
+    background: var(--primary);
     color: var(--text);
     padding: 1rem 2rem;
     text-decoration: none;
@@ -251,7 +251,7 @@ p {
 }
 
 .btn:hover {
-    background: var(--primary);
+    background: var(--bg-light);
 }
 
 .btnsec {
