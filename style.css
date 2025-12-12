@@ -20,25 +20,37 @@
 
 /* CSS Variables for Light/Dark Mode */
 :root {
-    --bg-primary: #1a1a1a;
-    --bg-secondary: #2a2a2a;
-    --bg-card: #2a2a2a;
-    --text-primary: #ffffff;
-    --text-secondary: #cccccc;
-    --border-color: #444444;
-    --accent-color: #6366f1;
-    --accent-hover: #4f46e5;
+    --bg-dark: hsl(266 93% 3%);
+    --bg: hsl(273 65% 6%);
+    --bg-light: hsl(273 41% 10%);
+    --text: hsl(271 100% 100%);
+    --text-muted: hsl(271 47% 75%);
+    --highlight: hsl(272 24% 44%);
+    --border: hsl(273 31% 32%);
+    --border-muted: hsl(274 45% 22%);
+    --primary: hsl(271 54% 76%);
+    --secondary: hsl(87 35% 61%);
+    --danger: hsl(9 47% 65%);
+    --warning: hsl(51 32% 52%);
+    --success: hsl(149 31% 55%);
+    --info: hsl(217 52% 67%);
 }
 
 [data-theme="light"] {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8f9fa;
-    --bg-card: #f8f9fa;
-    --text-primary: #1a1a1a;
-    --text-secondary: #4a4a4a;
-    --border-color: #e0e0e0;
-    --accent-color: #6366f1;
-    --accent-hover: #4f46e5;
+    --bg-dark: hsl(270 86% 93%);
+    --bg: hsl(270 100% 98%);
+    --bg-light: hsl(270 100% 100%);
+    --text: hsl(275 100% 7%);
+    --text-muted: hsl(273 31% 32%);
+    --highlight: hsl(271 100% 100%);
+    --border: hsl(272 25% 56%);
+    --border-muted: hsl(271 36% 68%);
+    --primary: hsl(273 35% 33%);
+    --secondary: hsl(81 84% 17%);
+    --danger: hsl(8 36% 41%);
+    --warning: hsl(52 58% 28%);
+    --success: hsl(152 45% 31%);
+    --info: hsl(217 38% 43%);
 }
 
 /* Simple, Clean Design */
@@ -50,8 +62,8 @@
 
 body {
     font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-    background: var(--bg-primary);
-    color: var(--text-primary);
+    background: var(--bg-dark);
+    color: var(--text);
     line-height: 1.6;
     font-size: 18px;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -59,7 +71,7 @@ body {
 
 /* Simple Navigation */
 .navbar {
-    background: var(--bg-secondary);
+    background: var(--bg);
     padding: 1rem 0;
     position: sticky;
     top: 0;
@@ -67,7 +79,7 @@ body {
     height: 70px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border);
     transition: background-color 0.3s ease;
 }
 
@@ -83,8 +95,8 @@ body {
 
 /* Theme Toggle Button */
 .theme-toggle {
-    background: var(--accent-color);
-    color: var(--text-primary);
+    background: var(--primary);
+    color: var(--text);
     border: none;
     padding: 0.5rem 1rem;
     border-radius: 6px;
@@ -96,11 +108,11 @@ body {
 }
 
 .theme-toggle:hover {
-    background: var(--accent-hover);
+    background: var(--secondary);
 }
 
 .logo {
-    color: var(--text-primary);
+    color: var(--text);
     text-decoration: none;
     font-size: 1.4rem !important;
     font-weight: 600 !important;
@@ -123,7 +135,7 @@ body {
 }
 
 .nav-links a {
-    color: var(--text-secondary);
+    color: var(--text-muted);
     text-decoration: none;
     padding: 0.5rem 1rem;
     border-radius: 4px;
@@ -135,8 +147,8 @@ body {
 
 .nav-links a:hover,
 .nav-links a.active {
-    background: var(--border-color);
-    color: var(--text-primary);
+    background: var(--border);
+    color: var(--text);
 }
 
 /* Force consistent navbar text sizing */
@@ -165,13 +177,13 @@ body {
 }
 
 .mobile-toggle:hover {
-    background: var(--border-color);
+    background: var(--border);
 }
 
 .hamburger {
     width: 24px;
     height: 3px;
-    background: var(--text-primary);
+    background: var(--text);
     margin: 2px 0;
     transition: all 0.3s ease;
     border-radius: 2px;
@@ -200,7 +212,7 @@ h1 {
     font-size: 2.8rem;
     text-align: center;
     margin: 2rem 0;
-    color: var(--text-primary);
+    color: var(--text);
     font-weight: 600;
     font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
@@ -209,7 +221,7 @@ h2 {
     font-size: 2.2rem;
     text-align: center;
     margin: 1.5rem 0 1rem 0;
-    color: var(--text-primary);
+    color: var(--text);
     font-weight: 600;
     font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
 }
@@ -217,7 +229,7 @@ h2 {
 p {
     font-size: 1.8rem;
     margin: 1rem 0;
-    color: var(--text-secondary);
+    color: var(--text);
     text-align: center;
     line-height: 1.7;
     font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
@@ -226,8 +238,8 @@ p {
 .btn {
     display: inline-block;
     align-self: center;
-    background: var(--accent-color);
-    color: var(--text-primary);
+    background: var(--primary);
+    color: var(--text);
     padding: 1rem 2rem;
     text-decoration: none;
     border-radius: 6px;
@@ -239,15 +251,15 @@ p {
 }
 
 .btn:hover {
-    background: var(--accent-hover);
+    background: var(--bg-light);
 }
 
 .card {
-    background: var(--bg-card);
+    background: var(--bg);
     padding: 2rem;
     margin: 2rem 0;
     border-radius: 8px;
-    border: 1px solid var(--border-color);
+    border: 1px solid var(--border);
     transition: all 0.3s ease;
 }
 
@@ -273,8 +285,8 @@ p {
     position: absolute;
     top: 100%;
     right: 0;
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
+    background: var(--bg);
+    border: 1px solid var(--border);
     border-radius: 6px;
     min-width: 180px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -288,8 +300,8 @@ p {
 .dropdown-menu a {
     display: block;
     padding: 0.75rem 1rem;
-    color: var(--text-secondary);
-    border-bottom: 1px solid var(--border-color);
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
     transition: all 0.3s ease;
 }
 
@@ -298,8 +310,8 @@ p {
 }
 
 .dropdown-menu a:hover {
-    background: var(--border-color);
-    color: var(--text-primary);
+    background: var(--border);
+    color: var(--text);
 }
 
 /* Lists */
@@ -349,7 +361,7 @@ a:hover {
         bottom: 0;
         width: 100%;
         height: 100vh;
-        background: var(--bg-primary);
+        background: var(--bg);
         flex-direction: column;
         justify-content: center;
         align-items: center;
@@ -377,8 +389,8 @@ a:hover {
     .nav-links a {
         font-size: 1.4rem !important;
         padding: 1.2rem 2.5rem;
-        background: var(--bg-card);
-        border: 1px solid var(--border-color);
+        background: var(--bg);
+        border: 1px solid var(--border);
         border-radius: 12px;
         width: 100%;
         max-width: 300px;
@@ -391,7 +403,7 @@ a:hover {
     .nav-links a:hover {
         transform: translateY(-3px);
         box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        background: var(--accent-color);
+        background: var(--primary);
         color: white;
     }
 
@@ -406,7 +418,7 @@ a:hover {
     }
 
     .dropdown-menu a {
-        background: var(--bg-secondary) !important;
+        background: var(--bg) !important;
         margin: 0.8rem 0;
         border-radius: 8px;
         width: 100%;
@@ -415,7 +427,7 @@ a:hover {
     }
 
     .dropdown-menu a:hover {
-        background: var(--accent-hover) !important;
+        background: var(--primary) !important;
     }
 
 
@@ -505,7 +517,7 @@ a:hover {
     .hamburger {
         width: 25px;
         height: 3px;
-        background: var(--text-primary);
+        background: var(--text);
         margin: 4px 0;
         transition: 0.3s;
         border-radius: 2px;
@@ -593,7 +605,7 @@ a:hover {
 .site-nav { display:flex; align-items:center; gap:12px; }
 .site-nav .nav-content { display:flex; align-items:center; gap:12px; width:100%; justify-content: space-between; }
 .burger {
-    background:transparent; border:0; padding:8px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; color:var(--text-primary);
+    background:transparent; border:0; padding:8px; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; color:var(--text);
 }
 .burger-box { width:30px; height:20px; display:inline-block; position:relative; }
 .burger-inner, .burger-inner::before, .burger-inner::after {
@@ -606,7 +618,7 @@ a:hover {
 .burger[aria-expanded="true"] .burger-inner::before { transform: rotate(-90deg) translateX(-6px); top:0; }
 .burger[aria-expanded="true"] .burger-inner::after  { opacity:0; transform: translateX(20px); }
 
-.nav-menu { position:absolute; top:100%; left:0; right:0; background:var(--bg-card); box-shadow:0 8px 24px rgba(0,0,0,.12); transform-origin:top; transition:transform .28s ease, opacity .2s ease; padding:12px 16px; border-radius:8px; z-index:999; }
+.nav-menu { position:absolute; top:100%; left:0; right:0; background:var(--bg); box-shadow:0 8px 24px rgba(0,0,0,.12); transform-origin:top; transition:transform .28s ease, opacity .2s ease; padding:12px 16px; border-radius:8px; z-index:999; }
 .nav-menu[hidden] { opacity:0; transform:scaleY(.98); pointer-events:none; height:0; overflow:hidden; }
 .nav-menu:not([hidden]) { opacity:1; transform:scaleY(1); pointer-events:auto; }
 
