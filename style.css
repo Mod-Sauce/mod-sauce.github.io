@@ -238,7 +238,7 @@ p {
 .btn {
     display: inline-block;
     align-self: center;
-    background: var(--primary);
+    background: var(--bg-light);
     color: var(--text);
     padding: 1rem 2rem;
     text-decoration: none;
@@ -251,9 +251,27 @@ p {
 }
 
 .btn:hover {
-    background: var(--bg-light);
+    background: var(--primary);
 }
 
+.btnsec {
+    display: inline-block;
+    align-self: center;
+    background: var(--secondary);
+    color: var(--text);
+    padding: 1rem 2rem;
+    text-decoration: none;
+    border-radius: 6px;
+    margin: 0.5rem;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    font-weight: 500;
+    font-family: 'Inter', 'Roboto', 'Helvetica Neue', Arial, sans-serif;  
+}
+
+.btnsec:hover {
+    background: var(--bg-light);
+}
 .card {
     background: var(--bg);
     padding: 2rem;
