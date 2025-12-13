@@ -7,7 +7,7 @@
       },
       "1.18.2": {
         "url": "https://pidxcndeajrmjzgnizaw.supabase.co/storage/v1/object/public/msbucket/iammusicplayer_renewed-forge-1.18.2-3.18.0-Alpha1.jar",
-        "note": "DEV"
+        "note": "None"
       }
     },
     "Fabric": {
@@ -17,7 +17,7 @@
       },
       "1.18.2": {
         "url": "https://pidxcndeajrmjzgnizaw.supabase.co/storage/v1/object/public/msbucket/iammusicplayer_renewed-fabric-1.18.2-3.18.0-Alpha1.jar",
-        "note": "DEV"
+        "note": "None"
       },
       "1.21.1": {
         "url": "",
