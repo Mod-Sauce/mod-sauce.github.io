@@ -21,9 +21,9 @@
 /* CSS Variables for Light/Dark Mode */
 :root {
     /* Default to light mode */
-    --bg-dark: hsl(270 86% 93%);
-    --bg: hsl(270 100% 98%);
-    --bg-light: hsl(270 100% 100%);
+    --bg-dark: hsl(0 0% 90%);
+    --bg: hsl(0 0% 95%);
+    --bg-light: hsl(0 0% 100%);
     --text: hsl(275 100% 7%);
     --text-muted: hsl(273, 63%, 25%);
     --highlight: hsl(271 100% 100%);
@@ -39,21 +39,22 @@
 
 /* Dark mode */
 [data-theme="dark"] {
-    --bg-dark: hsl(266 93% 3%);
-    --bg: hsl(273 65% 6%);
-    --bg-light: hsl(273 41% 10%);
-    --text: hsl(271 100% 100%);
-    --text-muted: hsl(271 47% 75%);
-    --highlight: hsl(272 24% 44%);
-    --border: hsl(273 31% 32%);
-    --border-muted: hsl(274 45% 22%);
-    --primary: hsl(273, 81%, 24%);
-    --secondary: hsl(87 35% 61%);
-    --danger: hsl(9 47% 65%);
-    --warning: hsl(51 32% 52%);
-    --success: hsl(149 31% 55%);
-    --info: hsl(217 52% 67%);
+        --bg-dark: hsl(266 93% 3%);
+        --bg: hsl(273 65% 6%);
+        --bg-light: hsl(273 41% 10%);
+        --text: hsl(271 100% 100%);
+        --text-muted: hsl(271 47% 75%);
+        --highlight: hsl(272 24% 44%);
+        --border: hsl(273 31% 32%);
+        --border-muted: hsl(274 45% 22%);
+        --primary: hsl(273, 81%, 24%);
+        --secondary: hsl(87 35% 61%);
+        --danger: hsl(9 47% 65%);
+        --warning: hsl(51 32% 52%);
+        --success: hsl(149 31% 55%);
+        --info: hsl(217 52% 67%);
 }
+
 
 /* Simple, Clean Design */
 * {
