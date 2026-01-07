@@ -48,7 +48,7 @@
         <script>
             let downloadsConfig = {};
 
-            fetch("downloads.json")
+            fetch("https://codeberg.org/Mod-Sauce/pages/raw/branch/main/downloads.json")
                 .then((res) => res.json())
                 .then((data) => {
                     downloadsConfig = data;
