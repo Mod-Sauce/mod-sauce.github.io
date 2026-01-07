@@ -10,7 +10,7 @@
         "note": "None"
       },
       "1.20.1": {
-        "url": "https://pidxcndeajrmjzgnizaw.supabase.co/storage/v1/object/public/msbucket/1.20.1/impr-forge.jar"
+        "url": "https://pidxcndeajrmjzgnizaw.supabase.co/storage/v1/object/public/msbucket/1.20.1/impr-forge.jar",
         "note": "NA"
       }
     },
@@ -28,7 +28,7 @@
         "note": "NA"
       },
       "1.20.1": {
-        "url": "https://pidxcndeajrmjzgnizaw.supabase.co/storage/v1/object/public/msbucket/1.20.1/impr-fabric.jar"
+        "url": "https://pidxcndeajrmjzgnizaw.supabase.co/storage/v1/object/public/msbucket/1.20.1/impr-fabric.jar",
         "note": "NA"
       }
     },
