@@ -12,6 +12,10 @@
       "1.20.1": {
         "url": "https://codeberg.org/Mod-Sauce/IamMusicPlayerRenewed/releases/download/3.23.1-beta1/forge-3.23.1-1.20.1-beta1.jar",
         "note": "None"
+      },
+      "1.21.1": {
+        "url": "",
+        "note": "EOL"
       }
     },
     "Fabric": {
@@ -25,7 +29,7 @@
       },
       "1.21.1": {
         "url": "",
-        "note": "NA"
+        "note": "M/C-DEV"
       },
       "1.20.1": {
         "url": "https://codeberg.org/Mod-Sauce/IamMusicPlayerRenewed/releases/download/3.23.1-beta1/fabric-3.23.1-1.20.1-beta1.jar",
@@ -35,7 +39,7 @@
     "NeoForge": {
       "1.21.1": {
         "url": "",
-        "note": "NA"
+        "note": "AD"
       }
     }
   },
@@ -43,13 +47,13 @@
     "NeoForge": {
       "1.21.1": {
         "url": "",
-        "note": "NA"
+        "note": "M/C-DEV"
       }
     },
     "Fabric": {
       "1.21.1": {
         "url": "",
-        "note": "NA"
+        "note": "M/C-DEV"
       }
     }
   }
