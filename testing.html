@@ -169,24 +169,28 @@
 
                             if (data.note === "NA") {
                                 warningDiv.textContent =
-                                    "Currently no version available. Please check back later.";
+                                    "No version is currently available. Please check back later.";
                                 warningDiv.className = "info-message";
                             } else if (data.note === "DEV") {
                                 warningDiv.textContent =
-                                    "Warning: Early development build.";
+                                    "This is an early development build and may be unstable.";
                                 warningDiv.className = "warning-card";
                             } else if (data.note === "M/C") {
                                 warningDiv.textContent =
-                                    "Available on Modrinth and/or Curseforge";
+                                    "This version is available on Modrinth and CurseForge.";
                                 warningDiv.className = "info-message";
                             } else if (data.note === "M/C-DEV") {
                                 warningDiv.textContent =
-                                    "Early development build available on Modrinth and/or Curseforge";
-                                warningDiv.className = "warning-card
+                                    "An early development build is available on Modrinth and CurseForge.";
+                                warningDiv.className = "warning-card"
                             } else if (data.note === "AD") {
                                 warningDiv.textContent =
-                                    "We are Actively working on a working build.";
-                                warningDiv.className = "warning-card
+                                    "We are actively working on a compatible build.";
+                                warningDiv.className = "warning-card"
+                            } else if (data.note === "EOL") {
+                                warningDiv.textContent =
+                                    "Support for this mod loader has been discontinued for future Minecraft versions. Existing releases for older Minecraft versions will continue to receive updates. Support for other mod loaders remains unaffected.";
+                                warningDiv.className = "warning-card"
                             }
                         }
                     }
