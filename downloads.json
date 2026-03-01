@@ -3,15 +3,15 @@
     "Forge": {
       "1.19.2": {
         "url": "https://pidxcndeajrmjzgnizaw.supabase.co/storage/v1/object/public/msbucket/1.19.2/iammusicplayer-forge-3.20.2-1.19.2-mc1.19.2-3.20.2-1.19.2.jar",
-        "note": "None"
+        "note": "EOL"
       },
       "1.18.2": {
         "url": "https://pidxcndeajrmjzgnizaw.supabase.co/storage/v1/object/public/msbucket/iammusicplayer_renewed-forge-1.18.2-3.18.0-Alpha1.jar",
-        "note": "None"
+        "note": "EOL"
       },
       "1.20.1": {
         "url": "https://codeberg.org/Mod-Sauce/IamMusicPlayerRenewed/releases/download/3.23.1-beta1/forge-3.23.1-1.20.1-beta1.jar",
-        "note": "None"
+        "note": "EOL"
       },
       "1.21.1": {
         "url": "",
