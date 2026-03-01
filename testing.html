@@ -175,6 +175,10 @@
                                 warningDiv.textContent =
                                     "Warning: Early development build.";
                                 warningDiv.className = "warning-card";
+                            } else if (data.note === "M/C") {
+                                warningDiv.textContent =
+                                    "Available on Modrinth and/or Curseforge";
+                                warningDiv.className = "info-message";
                             }
                         }
                     }
